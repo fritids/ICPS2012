@@ -3,7 +3,7 @@
 </div><!-- container -->
 
 <div id="footer">
-<div id="cr">&copy; ICPS committee 2012</div>
+<div id="cr">&copy; 2011 ICPS committee</div>
 </div>
 </div><!-- wrapper -->
 

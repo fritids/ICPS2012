@@ -36,7 +36,7 @@
   <div id="head">
     <img src="<?php bloginfo('template_directory') ?>/images/icps-logo.png" alt="ICPS 2012"/>
     
-    <?php wp_nav_menu('menu=primary&container=false&depth=1'); ?>
+    <?php wp_nav_menu('menu=main&container=false&depth=1'); ?>
     
     <div id="header-image"></div>
 
@@ -65,5 +65,5 @@
     endif; /* display submenu */
     ?>
     <div class="clear"></div>
-  </div>
+  </div> <!-- #head -->
 
