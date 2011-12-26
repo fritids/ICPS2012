@@ -1,4 +1,4 @@
-<?php ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL); ?>
+<?php ini_set('display_errors', 0); ini_set('display_startup_errors', 0); error_reporting(E_ALL); ?>
 
 <!DOCTYPE html>
 <html lang="nl">
@@ -12,6 +12,7 @@
             ?>
         </title>
         <link rel="stylesheet" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
+        <link rel="icon" type="image/png" href="http://www.icps2012.com/favicon.png">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 
         <?php wp_head(); ?>
@@ -29,35 +30,37 @@
 
 </script>
     </head>
-<body <?= body_class(); ?>>
+<body <?php echo body_class(); ?>>
 
 <div id="wrapper">
 <div id="container">
   <div id="head">
-    <img src="<?php bloginfo('template_directory') ?>/images/icps-logo.png" alt="ICPS 2012"/>
+    <a href="http://www.icps2012.com/"><img src="<?php bloginfo('template_directory') ?>/images/icps-logo.png" alt="ICPS 2012"/></a>
     
     <?php wp_nav_menu('menu=main&container=false&depth=1'); ?>
     
     <div id="header-image"></div>
 
 
-    <?php 
+    <?php
+    if(isset($post->ID)) : 
     $subpages = wp_list_pages('echo=0&title_li=&child_of=' . $post->ID);
     
-    if($subpages || $post->post_parent) :
-        ?>
-          <div class="submenu">
-            <ul>
-            <?php
-               if($subpages) :
-                   echo $subpages;
-               elseif($post->post_parent) :
-                   wp_list_pages('title_li=&child_of=' . $post->post_parent);
-               endif; /* submenu type */
+        if($subpages || $post->post_parent) :
             ?>
-            </ul>
-         </div>
-    <?php
+              <div class="submenu">
+                <ul>
+                <?php
+                   if($subpages) :
+                       echo $subpages;
+                   elseif($post->post_parent) :
+                       wp_list_pages('title_li=&child_of=' . $post->post_parent);
+                   endif; /* submenu type */
+                ?>
+                </ul>
+             </div>
+        <?php
+        endif;
     else :
         ?>
         <div class="pusher"></div>

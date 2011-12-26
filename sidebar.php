@@ -1,6 +1,7 @@
 <div id="sidebar">
-    <h3>Sponsor</h3>
-    <p>Your company's logo here? Please contact the organizing committee for more information.</p>
+    <h3>Sponsors</h3>
+    <a href="http://www.asml.nl" rel="external"><img src="<?php bloginfo('template_directory') ?>/images/logos/ASML.jpg" alt="ASML"/></a>
+    <a href="http://www.panalytical.com" rel="external"><img src="<?php bloginfo('template_directory') ?>/images/logos/PANalytical.jpg" alt="PANalytical"/></a>
 
     <h3>Contact Us</h3>
     <address>

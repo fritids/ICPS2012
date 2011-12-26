@@ -1,7 +1,7 @@
-<?php get_header(); ?>
+<?php get_header() ?>
 
     <div id="content" role="main">
         <?php get_template_part('loop', 'index'); ?>
     </div>
 
-<?php get_footer(); ?>
+<?php get_footer() ?>

@@ -1,0 +1,13 @@
+ICPS 2012 application confirmation
+Dear {$first_name},
+
+We hereby confirm your application for the International Conference of Physics Students 2012. Below, you will find the credentials you can use to log onto http://www.icps2012.com/dashboard/, where you can review your personal information and application status.
+
+User (same as e-mail address): {$email}
+Password: {$password}
+
+We hope to see you in August!
+
+Yours sincerely,
+
+Joren Brunekreef

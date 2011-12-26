@@ -7,6 +7,7 @@ $errors = array();
 if ('POST' == $_SERVER['REQUEST_METHOD'] && wp_verify_nonce($_POST['icnonsense'], 'register') ) :
     require 'functions/register.php';
 
+    
     $result = icps_register_user($_POST);
     $user_id = null;
 
@@ -17,7 +18,7 @@ if ('POST' == $_SERVER['REQUEST_METHOD'] && wp_verify_nonce($_POST['icnonsense']
         $user_id = $result[1];
     endif; // did an error occur?
 elseif ('POST' == $_SERVER['REQUEST_METHOD'] && !wp_verify_nonce($_POST['icnonsense'], 'register') ) :
-    die("You don\'t seem to have arrived here from the right page. For security reasons, we cannot accept the supplied data.");
+    die("You don\'t seem to have arrived here from the right page. For security reasons, we cannot accept the submitted data.");
 endif; // has registration data been supplied in a valid way?
 
 wp_enqueue_style('register');
@@ -38,17 +39,22 @@ else :
 
 <div id="content">
 
+    <h2>Apply for ICPS 2012</h2>
     <form id="registration" name="registration" method="post">
     
-        <label class="row text">
-	    <span class="label">First name</span>
-	    <input type="text" name="first_name" />
-	</label>
+        <div class="row">
+            <label class="splitrow text">
+    	        <span class="label">First name</span>
+                <input type="text" name="first_name" />
+            </label>
 
-        <label class="row text">
-	    <span class="label">Last name</span>
-	    <input type="text" name="last_name" />
-	</label>
+            <label class="splitrow text">
+                <span class="label">Last name</span>
+                <input type="text" name="last_name" />
+            </label>
+        </div>
+    
+	<div class="clear"></div>
 
         <label class="row email">
 	    <span class="label">Email</span>
@@ -57,7 +63,7 @@ else :
 
         <label class="row select">
 	    <span class="label">Country of residence</span>
-	    <input type="text" name="country" />
+	    <?php require('inc/countries.html') ?>	    
 	</label>
 
         <label class="row text">
@@ -81,6 +87,8 @@ else :
 	    <input type="checkbox" name="contribute" />
 	    <span class="label">I'm interested in giving a student lecture, or supplying a poster.</span>
 	</label>
+        
+        <div class="clear"></div>
 
 	<label class="row submit">
 	    <input type="submit" name="submit" class="button submit" value="Submit registration" />
@@ -88,6 +96,8 @@ else :
 	</label>
     </form>
 </div> <!-- #content -->
+
+<?php get_sidebar() ?>
 
 <div class="clear"></div>
 <?php

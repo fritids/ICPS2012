@@ -1,5 +1,10 @@
+form#registration { width: 340px; }
 .row { display: block; position: relative; margin: 10px 0 10px 20px; }
+.splitrow { display: block; position: relative; float: left; width: 156px; }
 
 span.label { display: block; float: left; font-size: 16px; }
 
 .row input[type=text], .row input[type=email] { width: 95%; border: 1px solid #99AA99; height: 20px; }
+
+.row input[type=checkbox] { float: left; }
+.row.checkbox span { width: 280px; }
