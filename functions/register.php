@@ -12,7 +12,8 @@ function icps_register_user($data) {
 	'university' => $_POST['university'],
 	'study' => $_POST['study'],
 	'level' => $_POST['level'],
-	'contribute' => $_POST['contribute']
+	'contribute' => $_POST['contribute'],
+        'application_status' => 1
     );
 
     $safedata = array_map('mysql_real_escape_string', $userdata);
@@ -21,6 +22,8 @@ function icps_register_user($data) {
 
     $username = $safedata['email'];
     if( username_exists( $username ) ) return array(false, 2);
+    $email = $safedata['email'];
+    if( email_exists( $email ) ) return array(false, 2);
 
     $random_pw = wp_generate_password(8, false);
     $user_id = wp_create_user( $username, $random_pw, $safedata['email'] );
@@ -38,7 +41,7 @@ function icps_register_user($data) {
     endif; // update basic user info
         
 
-    $user_metas = array('country', 'university', 'study', 'level', 'contribute');
+    $user_metas = array('country', 'university', 'study', 'level', 'contribute', 'application_status');
 
     foreach($user_metas as $field) :
         if(!update_user_meta( $user_id, $field, $safedata[$field] ) ) {

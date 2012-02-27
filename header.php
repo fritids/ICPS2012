@@ -13,6 +13,7 @@
         </title>
         <link rel="stylesheet" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
         <link rel="icon" type="image/png" href="http://www.icps2012.com/favicon.png">
+        <link href="https://plus.google.com/116607613287448254559" rel="publisher" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 
         <?php wp_head(); ?>
@@ -31,6 +32,14 @@
 </script>
     </head>
 <body <?php echo body_class(); ?>>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 <div id="wrapper">
 <div id="container">
@@ -39,7 +48,7 @@
     
     <?php wp_nav_menu('menu=main&container=false&depth=1'); ?>
     
-    <div id="header-image"></div>
+    <div id="header-image"><img src="<?php bloginfo('template_directory') ?>/images/skyline_web.png" alt="header image"/></div>
 
 
     <?php

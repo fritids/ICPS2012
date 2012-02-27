@@ -6,5 +6,7 @@ span.label { display: block; float: left; font-size: 16px; }
 
 .row input[type=text], .row input[type=email] { width: 95%; border: 1px solid #99AA99; height: 20px; }
 
+
 .row input[type=checkbox] { float: left; }
 .row.checkbox span { width: 280px; }
+

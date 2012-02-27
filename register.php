@@ -40,6 +40,17 @@ else :
 <div id="content">
 
     <h2>Apply for ICPS 2012</h2>
+    <?php echo $post->post_content ?>
+    <?php
+    if(!empty($errors) ) :
+        ?>
+        <div id="errors">
+            <?php if(in_array(1, $errors) ) echo "The supplied email address isn't valid!"; ?>
+            <?php if(in_array(2, $errors) ) echo "The supplied email address has already been registered."; ?>
+        </div>
+        <?php
+    endif; // errors
+    ?>
     <form id="registration" name="registration" method="post">
     
         <div class="row">

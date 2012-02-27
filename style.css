@@ -25,9 +25,10 @@ a { text-decoration: none; color: #888; }
 #head .menu li.current_page_item a { text-decoration: underline; }
 #head .menu a:hover { color: #3273A8; }
 
-#head #header-image { height: 100px; text-align: center; padding-top: 
+#head #header-image { height: 200px; text-align: center; padding-top: 
 40px; /*box-shadow: 0 3px 3px #bbb;*/ }
-#head img { width: 220px; position: absolute; left: 50px; }
+#head #header-image img { width: 1000px; left: 0; z-index: 0; margin-top: 20px; }
+#head img { width: 250px; position: absolute; left: 50px; z-index: 10;}
 
 #head .submenu { height: 25px; font-size: 14px; padding-top: 15px; }
 #head .submenu ul { margin: 0 0 0 280px; width: 720px;}
@@ -38,7 +39,7 @@ a { text-decoration: none; color: #888; }
 
 #head .pusher { height: 25px; padding-top:15px; }
 
-#content { float: left; margin: 20px 40px; width: 550px; background: rgba(255,255,255,0.8); padding: 20px; font-size: 13px;  line-height: 21px; }
+#content { float: left; margin: 0px 40px 30px 40px; width: 550px; background: rgba(255,255,255,0.95); padding: 5px 20px; font-size: 13px;  line-height: 21px; }
 #content h2 { margin: 0 0 20px 0; }
 #content p { margin: 10px 0; }
 #content ul { list-style-type: disc; }
@@ -47,22 +48,51 @@ a { text-decoration: none; color: #888; }
 #content ul.links li { margin-left: 0; }
 #content ul.links ul.links { margin-left: 20px; }
 
-#sidebar { float: left; margin: 20px 20px; width: 200px; padding: 20px; font-size: 14px; line-height: 20px; }
+#content #application { margin-top: 10px;  }
+#content #application-status { width: 100%; height: 20px; margin: 10px 0; padding: 15px 0; border: solid 1px #dfdfdf; text-align: center; }
+#content #application-status.pending { background-color: #ffc37e; }
+
+#content #lecture, #content #poster { display: none; }
+
+#sidebar { float: left; margin: 0px 20px; width: 200px; padding: 5px 20px; font-size: 14px; line-height: 20px; }
 #sidebar h3 { margin: 20px 0 20px 0; }
+#sidebar address { margin-bottom: 20px; line-height: 1.2em; }
 
 #footer { position: relative; bottom: 0; width: 1000px; height: 30px; margin: 0 auto; }
 #footer #cr { float: right; margin: 15px 10px 5px 0; font-size: 11px; }   
 
 /* Programme page */
-#programme-timetable { height: 640px; }
+#programme-timetable { height: 640px; width: 605px; background-color: #fafafa }
 #programme-timetable #hours, #programme-timetable .day-column{ float: left; }
 
+#days { margin-left: 80px; height: 40px; width: 525px; }
+.day { float: left; width: 73px; font-weight: bold; padding: 1px;  text-align: center; }
 #hours { width: 80px; }
 #hours .hour { height: 40px; }
-#hours .hour:nth-of-type(2n) { background: #dfdfdf; }
+#hours .hour:nth-of-type(2n) { background: #bad3de; }
 
-#programme-timetable .day-column { width: 70px; }
+#programme-timetable .day-column { width: 75px; text-align: center; }
 
+.timeslot { overflow: hidden; }
+
+.slot-type-0, .slot-type-99 { background-color: #fafafa; }
+.slot-type-1 { background-color: #ffc37e }
+.slot-type-2 { background-color: #4a90b1 }
+.slot-type-3 { background-color: #6cb0d1 }
+.slot-type-4 { background-color:   }
+.slot-type-5 { background-color: #6cdb9c  }
+.slot-type-6 { background-color: #ff9214  }
+.slot-type-7 { background-color: #2a8954  }
+
+/* login */
+form#loginform { width: 340px; }
+.row { display: block; position: relative; margin: 10px 0 10px 20px; }
+span.label { display: block; float: left; font-size: 16px; }
+.row input[type=text], .row input[type=password] { width: 95%; border: 1px solid #99AA99; height: 20px; }
+
+#errors { margin-left: 20px; color: #ff0000; }
+
+.fb-badge { margin-top: 20px; }
 /* =Reset default browser CSS. Based on work by Eric Meyer:http://meyerweb.com/eric/tools/css/reset/index.html
 -------------------------------------------------------------- */
 div,span,applet,object,iframe,p,blockquote,pre,

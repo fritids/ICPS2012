@@ -14,6 +14,11 @@
         <br/>
 	External affairs: <br/>
 	<a href="mailto:externalaffairs@icps2012.com">externalaffairs@icps2012.com</a> <br/>
-	+31 6 418 70 034
+	+31 6 418 70 034<br/>
+        <br/>
+        Looking for <a href="/promotional-material/">promotional material</a>?
     </address>
+
+<div class="fb-like" data-href="http://www.facebook.com/icps2012" data-send="false" data-layout="button_count" data-width="150" data-show-faces="false"></div>
+<a href="https://plus.google.com/116607613287448254559?prsrc=3" style="text-decoration:none;"><img src="https://ssl.gstatic.com/images/icons/gplus-16.png" alt="" style="border:0;width:16px;height:16px;"/></a>
 </div>

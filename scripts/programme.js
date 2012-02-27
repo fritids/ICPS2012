@@ -1,3 +1,4 @@
+
 var types = {
     _GENERAL: 0,
     _FOOD: 1,
@@ -19,8 +20,9 @@ var schedule = [
       b(8, "", "", types._NONE),
     b(14.5, "Arrival", "", types._GENERAL),
     b(18.5, "Dinner", "Buffet", types._FOOD),
+    b(20, "Opening", types._GENERAL),
     b(20.5, "Break", "", types._BREAK),
-    b(21, "Party", "Welcome Party", types._PARTY)
+    b(21, "Welcome party", "Welcome Party", types._PARTY)
   ],
   [
       b(8, "Breakfast", "", types._FOOD),
@@ -30,7 +32,7 @@ var schedule = [
       b(13, "City tour Utrecht", "Including lunch. Parallel session: annual general meeting of IAPS", types._EXTERNAL),
       b(18.5, "Dinner", "In town", types._FOOD),
       b(20.5, "Break", "", types._BREAK),
-      b(21, "Party", "Costume party", types._PARTY)
+      b(21, "Costume party", "Costume party", types._PARTY)
   ],
   [
       b(8, "Breakfast", "", types._FOOD),
@@ -46,7 +48,8 @@ var schedule = [
       b(20.5, "Free night", "", types._NONE)
   ],
   [
-      b(8, "Breakfast", "and transit to Twente", types._FOOD),
+      b(8, "Breakfast", "", types._FOOD),
+      b(9.25, "Transit to Twente", "", types.GENERAL),
       b(11, "Reception", "", types._GENERAL),
       b(11.5, "Opening (headmaster) and guest lecture", "", types._GLECTURE),
       b(13, "Lunch", "", types._FOOD),
@@ -55,7 +58,7 @@ var schedule = [
       b(17.5, "Student lectures", "", types._SLECTURE),
       b(18.5, "Dinner", "", types._FOOD),
       b(20.5, "Break", "", types._BREAK),
-      b(21, "Party", "Dutch party (continuously available transit back to Utrecht)", types._PARTY)
+      b(21, "Dutch party", "Dutch party (continuously available transit back to Utrecht)", types._PARTY)
   ],
   [
       b(8, "Breakfast", "", types._FOOD),
@@ -64,19 +67,20 @@ var schedule = [
       b(14, "Cultural excursions", "", types._EXTERNAL),
       b(18.5, "Dinner", "", types._FOOD),
       b(20.5, "Break", "", types._BREAK),
-      b(21, "Party", "Nations party", types._PARTY)
+      b(21, "Nation party", "Nations party", types._PARTY)
   ],
   [
       b(8, "Breakfast", "", types._FOOD),
       b(9.25, "Student lectures", "", types._SLECTURE),
       b(11, "Break", "", types._BREAK),
+      b(11.5,"Guest lecture", "", types._GLECTURE),
       b(13, "Lunch", "", types._FOOD),
       b(14, "Guest lecture", "", types._GLECTURE),
       b(15, "Student lectures", "", types._SLECTURE),
       b(17, "Formal closing", "", types._GENERAL),
       b(18.5, "Dinner", "", types._FOOD),
       b(20.5, "Break", "", types._BREAK),
-      b(21, "Party", "Farewell party", types._PARTY)
+      b(21, "Farewell party", "Farewell party", types._PARTY)
   ],
   [
       b(8, "Breakfast", "", types._FOOD),
@@ -96,13 +100,19 @@ $(function() {
   $.each(schedule, function(s_index, day) {
     var div_index = s_index + 2;
 
-    $.each(day.slice(0, day.length - 1), function(index, el) {
+    $.each(day.slice(0, day.length), function(index, el) {
       var start_fit = fit(el.start);
 
-      var next_fit = fit(day[index + 1].start);
+      var next_fit = 0;
+      if(index < day.length - 1) { 
+        next_fit = fit(day[index + 1].start);  
+      } else {
+        next_fit = fit(24); 
+      }
 
       var height = Math.floor((next_fit - start_fit) * timetable.height());
-      $('<div>'+el.title+'</div>').addClass('timeslot').css('height', height+'px').appendTo('#programme-timetable div.day-column:nth-of-type('+div_index+')');
+
+      $('<div>'+el.title+'</div>').addClass('timeslot').addClass('slot-type-'+el.type).css('height', height+'px').appendTo('#programme-timetable div.day-column:nth-of-type('+div_index+')');
     });
   })
 });

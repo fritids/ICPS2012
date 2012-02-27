@@ -11,7 +11,17 @@ function icps_setup() {
 
     wp_register_script('programme', get_template_directory_uri() . '/scripts/programme.js');
 
+    remove_theme_support('automatic-feed-links');
+
 }
+
+remove_action('wp_head', 'wlwmanifest_link');
+remove_action('wp_head', 'rsd_link');
+remove_action('wp_head', 'adjacent_posts_rel_link_wp_head');
+
+add_filter('show_admin_bar', '__return_false');
+remove_action('personal_options', '_admin_bar_preferences');
+
 
 add_filter('wp_mail_from', 'icps_wp_mail_from');
 function icps_wp_mail_from($content_type) { return 'mail@icps2012.com'; }

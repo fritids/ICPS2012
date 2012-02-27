@@ -1,6 +1,6 @@
 <?php
 /*
-** Template name: Dashboard
+** Template name: Dashboard-2.0
 */
 
 $errors = array();
@@ -68,6 +68,7 @@ if($current_user->ID === 0) : // no user logged in, display login screen
 <?php
 else : // user is logged in
 
+add_user_meta( $current_user->ID, 'application_status', 1, true );
 ?>
   <h2>User dashboard</h2>
   
@@ -75,7 +76,19 @@ else : // user is logged in
   
   <div id="application">
     <h4>Application</h4>      
-    <div id="application-status" class="pending">Pending</div>
+    <?php
+    $a_status = get_user_meta($current_user->ID, 'application_status', true);
+
+    if($a_status === 1) :
+      ?>
+      <div id="application-status" class="pending">Pending</div>
+      <?php
+    else :
+      ?>
+      
+      <?php
+    endif;
+    ?>
   </div>
 
   <p>In due time, you will be able to upload a lecture or poster, which will then be reviewed by the organising committee. Please note: giving a lecture or providing a poster is not compulsory!</p>
