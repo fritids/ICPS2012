@@ -1,6 +1,6 @@
 <?php
 /*
-**Template Name: Programme
+**Template Name: Programme-test
 */
 
 wp_enqueue_script('jquery');
@@ -11,8 +11,19 @@ wp_enqueue_script('programme');
 
 <div id="content" role="main">
   <h2><?php echo $post->post_title ?></h2>
-
+    <div id="days">
+      <div class="day">Saturday 4/08</div>
+      <div class="day">Sunday &nbsp;  5/08</div>
+      <div class="day">Monday &nbsp; 6/08</div>
+      <div class="day">Tuesday 7/08</div>
+      <div class="day">Wednesday 8/08</div>
+      <div class="day">Thursday 9/08</div>
+      <div class="day">Friday &nbsp; 10/08</div>
+      
+    </div>
+<div class="clear"></div>    
   <div id="programme-timetable">
+
     <div id="hours">
       <div class="hour">08:00</div>
       <div class="hour">09:00</div>

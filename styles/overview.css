@@ -1,0 +1,10 @@
+* { font-family: "Helvetica Neue", Helvetica, sans-serif; }
+
+table { border-collapse: collapse; }
+td { max-width: 180px; padding: 2px 5px; overflow: hidden; font-size: 11pt; }
+
+#reverse { border: 1px dashed #efefef; width: 100%; height: 30px; }
+
+tr:nth-of-type(even) { background: #dfdfdf; }
+
+tr.roflqwop { font-weight: bold; }

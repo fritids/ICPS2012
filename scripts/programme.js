@@ -29,7 +29,7 @@ var schedule = [
       b(9.25, "Opening lecture", "", types._GLECTURE),
       b(11, "Break", "", types._BREAK),
       b(11.5, "Student lectures", "", types._SLECTURE),
-      b(13, "City tour Utrecht", "Including lunch. Parallel session: annual general meeting of IAPS", types._EXTERNAL),
+      b(13, "City tour Utrecht/AGM", "Including lunch. Parallel session: annual general meeting of IAPS", types._EXTERNAL),
       b(18.5, "Dinner", "In town", types._FOOD),
       b(20.5, "Break", "", types._BREAK),
       b(21, "Costume party", "Costume party", types._PARTY)

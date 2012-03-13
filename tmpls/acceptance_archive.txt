@@ -1,0 +1,9 @@
+ICPS 2012 registration acceptance/rejection
+
+We just sent the following user a notification of acceptance/rejection:
+
+Name: {$first_name} <> {$last_name}
+Email: {$email}
+ID: {$uuid}
+Accepted: {$accepted}
+

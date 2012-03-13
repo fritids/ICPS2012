@@ -5,6 +5,7 @@
     <head>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
+<?php if(is_page('dashboard-2-0') || is_page('sandbox') || is_page('overview')) : ?><meta name="robots" content="noindex"/><?php endif; ?>
         <title><?php
             global $post;
             wp_title( '|', true, 'right' );
