@@ -33,6 +33,7 @@ $fields = icps_overview_fields();
 <?php foreach($fields as $field): ?><th data-key="<?php echo $field['name'] ?>"><?php echo $field['nicename'] ?></th><?php endforeach; ?>
 
   <th>Door</th>
+  <th>Betaald</th>
 </thead>
 <tbody>
 

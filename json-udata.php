@@ -34,6 +34,7 @@ foreach($uids as $uid) :
     $label = $mfield['name'];
     $appldata->$label = get_user_meta($uid, $label, true);
   endforeach;
+  
   $applicants[] = $appldata;
 endforeach;
 

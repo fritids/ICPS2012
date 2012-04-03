@@ -5,7 +5,7 @@ function icps_cast_ov($name, $nicename) {
 }
 
 function icps_overview_metafields() {
-  return array(icps_cast_ov('country', 'Country'), icps_cast_ov('university', 'University'), icps_cast_ov('contribute', 'Lecture/poster'), icps_cast_ov('level', 'Level'), icps_cast_ov('application_status', 'Gay'));
+  return array(icps_cast_ov('country', 'Country'), /*icps_cast_ov('university', 'University'),*/ icps_cast_ov('contribute', 'Lecture/poster'), icps_cast_ov('level', 'Level'), icps_cast_ov('application_status', 'Gay'), icps_cast_ov('admission_round', 'Round'), icps_cast_ov('payment_amount', 'Geld'));
 }
 
 function icps_overview_standardfields() {

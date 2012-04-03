@@ -65,6 +65,7 @@ function icps_register_user($data) {
 	'level' => $_POST['level'],
 	'contribute' => $_POST['contribute'],
         'application_status' => 1,
+	'admission_round' => 0,
 	'address' => '',
 	'postal_code' => '',
 	'city' => '',
@@ -104,7 +105,7 @@ function icps_register_user($data) {
     endif; // update basic user info
         
 
-    $user_metas = array('country', 'university', 'study', 'level', 'contribute', 'application_status', 	'address','postal_code','city','date_of_birth','passport_nr','poster_b','lecture_b','poster_sub','lecture_sub');
+    $user_metas = array('country', 'university', 'study', 'level', 'contribute', 'application_status', 	'address','postal_code','city','date_of_birth','passport_nr','poster_b','lecture_b','poster_sub','lecture_sub', 'admission_round');
 
     foreach($user_metas as $field) :
         if(!update_user_meta( $user_id, $field, $safedata[$field] ) ) {

@@ -12,17 +12,20 @@ function populateTable() {
     var rows = '';
     $('#overview tbody').empty();
     $.each(window.udata, function(i, usr) {
-	var tr = '<tr>';
-	if(usr['application_status'] > 2) tr = '<tr class="roflqwop">';
+	var tr = '<tr class="';
+	if(usr['application_status'] > 2) tr = tr+'roflqwop ';
+	if(usr['application_status'] > 3) tr = tr+'qwopter ';
+        tr = tr+'">';
         tr = tr + '<td>'+i+'</td>';
 	$.each(usr, function(j, val) {
             if(j == 'application_status') {
-		if(val < 101) val = 'Yes';
+		if(val < 3) val = 'Yes';
 		else val = 'No';
 	    }
 	    tr = tr + '<td class="field-'+j+'">' + val + '</td>';
 	});
-	tr=tr+'<td><a href="#" class="approve" data-uid="'+usr.ID+'">klikkerdeklik</a></td>';
+	tr=tr+'<td><a href="#" class="approve" data-uid="'+usr.ID+'">klikkerdeklik</a></td>'; // approve
+        tr=tr+'<td class="floes"><input type="text" data-uid="'+usr.ID+'"></td>'; // doekoes
         tr = tr + '</tr>';
 	rows = rows + tr;
 
@@ -71,4 +74,15 @@ function initListeners() {
     }); 
     }
     return false; });
+    
+    $('#overview tbody').on('keypress', 'td.floes input', function(e) {
+	if(e.keyCode == 13) {
+	    var elem = $(e.currentTarget);
+
+            $.post('/overview/ajax-upayment/', {uid: elem.data('uid'), amount: elem.val()}, function(response) {
+            console.log(response);
+	});
+
+	}
+    });
 }

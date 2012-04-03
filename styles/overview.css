@@ -8,3 +8,6 @@ td { max-width: 180px; padding: 2px 5px; overflow: hidden; font-size: 11pt; }
 tr:nth-of-type(even) { background: #dfdfdf; }
 
 tr.roflqwop { font-weight: bold; }
+tr.qwopter { text-decoration: underline; }
+
+td.floes input { width: 40px; }

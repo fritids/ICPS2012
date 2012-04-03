@@ -16,7 +16,9 @@
 	<a href="mailto:externalaffairs@icps2012.com">externalaffairs@icps2012.com</a> <br/>
 	+31 6 418 70 034<br/>
         <br/>
-        Looking for <a href="/promotional-material/">promotional material</a>?
+        Looking for <a href="/promotional-material/">promotional material</a>? <br/>
+        <br>
+        Also check out <a href="http://www.iaps.info" name="IAPS">IAPS</a>
     </address>
 
 <div class="fb-like" data-href="http://www.facebook.com/icps2012" data-send="false" data-layout="button_count" data-width="150" data-show-faces="false"></div>

@@ -199,6 +199,10 @@ $(function() {
   </div>
 
   <p>In due time, you will be able to upload a lecture or poster, which will then be reviewed by the organising committee. Please note: giving a lecture or providing a poster is not compulsory!</p>
+
+  <p>To save on transaction fees, you could benefit from a group payment.
+Many National and Local Committees are willing to provide this service
+for you. Please send an e-mail with your request to your own <a href="http://www.iaps.info/members">NC or LC</a>.</p>
   <div id="lecture">
     <h4>Lecture</h4>
     
