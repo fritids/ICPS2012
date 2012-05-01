@@ -53,6 +53,20 @@ return array(
 ) ;
 }
 
+function icps_additional_detail_fields($uid) {
+    $fields = array( 
+    icps_cast_field('extra_day_pre', 'Extra night before', 'labeled-checkbox', true),
+    icps_cast_field('extra_day_post', 'Extra night after', 'labeled-checkbox', true), 
+    icps_cast_field('preferred_accommodation', 'Preferred accommodation', 'custom-acco-select', true)
+) ;
+
+    for($i=0; $i < sizeof($fields); $i++) :
+        $fields[$i]['value'] = get_user_meta($uid, $fields[$i]['name'], true);    
+    endfor;
+    return $fields;
+}
+
+
 function icps_register_user($data) {
     $userdata = array(
     	'first_name' => $_POST['first_name'],
@@ -74,7 +88,13 @@ function icps_register_user($data) {
 	'poster_b' => '',
 	'lecture_b' => '',
 	'poster_sub' => '',
-	'lecture_sub' => ''
+	'lecture_sub' => '',
+	'payment_amount' => 0,
+	'preferred_accommodation' => '',
+	'lecture_abstract' => '',
+	'poster_abstract' => '',
+	'extra_day_pre' => '',
+	'extra_day_post' => ''
     );
 
     $safedata = array_map('strip_tags', $userdata);
@@ -105,7 +125,7 @@ function icps_register_user($data) {
     endif; // update basic user info
         
 
-    $user_metas = array('country', 'university', 'study', 'level', 'contribute', 'application_status', 	'address','postal_code','city','date_of_birth','passport_nr','poster_b','lecture_b','poster_sub','lecture_sub', 'admission_round');
+    $user_metas = array('country', 'university', 'study', 'level', 'contribute', 'application_status', 	'address','postal_code','city','date_of_birth','passport_nr','poster_b','lecture_b','poster_sub','lecture_sub', 'admission_round', 'payment_amount', 'preferred_accommodation', 'lecture_abstract', 'poster_abstract', 'extra_day_pre', 'extra_day_post');
 
     foreach($user_metas as $field) :
         if(!update_user_meta( $user_id, $field, $safedata[$field] ) ) {
@@ -201,5 +221,23 @@ function icps_update_udetails($uid, $data) {
 	} else {
 	    if($appstatus % 8 > 4) update_user_meta($uid, 'application_status', $appstatus - 4);
 	}
+        return true;
+}
+
+function icps_update_adetails($uid, $data) {
+        $afields = icps_additional_detail_fields();
+
+        $safepost = array_map('strip_tags', $data);
+	//$safepost = array_map('htmlentities', $safepost);
+	$safepost = array_map('mysql_real_escape_string', $safepost);
+
+	$complete = true;
+
+	$sdata = array('ID'=>$uid);
+
+	foreach($afields as $afield) :
+	    update_user_meta($uid, $afield['name'], $safepost[$afield['name']]);
+	endforeach; // afields
+
         return true;
 }

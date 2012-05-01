@@ -9,5 +9,6 @@ tr:nth-of-type(even) { background: #dfdfdf; }
 
 tr.roflqwop { font-weight: bold; }
 tr.qwopter { text-decoration: underline; }
+tr.opgekankerd { color: #999999; text-decoration: line-through; }
 
 td.floes input { width: 40px; }

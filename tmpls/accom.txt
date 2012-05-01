@@ -1,0 +1,15 @@
+ICPS 2012 accommodation specification
+
+Dear {$first_name},
+
+In order to make your stay in the Netherlands as comfortable as possible, we would like to receive some additional information from you, regarding your accommodation. Your dashboard has been updated and now allows you to specify these additional details.
+
+In the first place, we'd like to know which of the three locations would have your preference. Secondly, we offer the possibility of booking one extra night before and after the conference, in order to accommodate for easier travel schedules. However, these extra nights will be at your own expenses (25,50 EUR per night). Please note that StayOkay Hostel Bunnik is the only place where extra nights are available.
+
+If you would like to make use of this option, please log on to your dashboard and mark your preferences (under 'Additional details'). Do so as soon as possible, as we need the information about extra nights before May 1.
+
+If you have any questions, feel free to contact us. See you in August!
+
+Kind regards,
+
+Joren Brunekreef

@@ -1,0 +1,9 @@
+ICPS 2012 registration revoked
+
+We just sent the following user a notification that admission has been revoked:
+
+Name: {$first_name} <> {$last_name}
+Email: {$email}
+ID: {$uuid}
+
+

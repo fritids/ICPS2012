@@ -1,0 +1,12 @@
+ICPS 2012 - admission revoked
+
+Dear {$first_name},
+
+
+I'm sorry to inform you that we've revoked your admission to the International Conference of Physics Students 2012. This is probably because we haven't received your registration fee yet. If you have in fact made the transfer, please contact us as soon as possible, so we can set things straight.
+
+Please note that this is an automated email.
+
+Kind regards,
+
+Joren Brunekreef

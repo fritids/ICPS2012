@@ -84,6 +84,7 @@ if($current_user->ID === 0) : // no user logged in, display login screen
 <?php
 else : // user is logged in
 
+
 ?>
   <h2>User dashboard</h2>
   
@@ -93,7 +94,12 @@ else : // user is logged in
     <h4>Application</h4>      
     <?php
     $a_status = (int) get_user_meta($current_user->ID, 'application_status', true);
-    if($a_status === 1) :
+    
+    if($a_status === 0) :
+      ?>
+      <p>Unfortunately, your application has been cancelled. This might be because your payment has not arrived in time. If you think there has been a misunderstanding, please don't hesitate to contact us.</p>
+      <?php
+    elseif($a_status === 1) :
       ?>
       <div id="application-status" class="pending">Pending</div>
       <?php
@@ -194,10 +200,11 @@ $(function() {
 </form>
 </div>
       <?php
-    endif;
+    endif; // application status > 3 
     ?>
   </div>
 
+<?php if($a_status > 0) : ?>
   <p>In due time, you will be able to upload a lecture or poster, which will then be reviewed by the organising committee. Please note: giving a lecture or providing a poster is not compulsory!</p>
 
   <p>To save on transaction fees, you could benefit from a group payment.
@@ -215,7 +222,7 @@ for you. Please send an e-mail with your request to your own <a href="http://www
   <div id="change-password">
     <p>If you want to change your password, you can do so <a href="/wp-login.php?action=lostpassword">here</a>.</p>
   </div>
-
+<?php endif; ?>
   <div id="logout">
     <p><a href="/logout">Log out</a></p>
   </div>

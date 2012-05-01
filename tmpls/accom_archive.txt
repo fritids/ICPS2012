@@ -1,0 +1,8 @@
+ICPS 2012 accommodation specification request sent
+
+The following person received a request to specify information regarding his or her accommodation in the Netherlands.
+
+Name: {$first_name} <> {$last_name}
+Email: {$email}
+ID: {$uuid}
+

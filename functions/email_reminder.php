@@ -3,23 +3,23 @@
 
 
 			       
-$users = get_users('role=applicant&orderby=id&fields=id');
+$users = get_users('role=applicant&orderby=id&fields=id&meta_key=admission_round&meta_value=2');
+$users = array_unique($users);
+//$users = array(443, 659);
 
 $archive_address = 'registration@icps2012.com';
-die;
 
+die;
 /*
+
 
 $i=0;
 foreach($users as $user_id) :
 
     $user = get_userdata($user_id);
-    $a_status = get_user_meta($user_id, 'application_status', true);
-    $a_round = get_user_meta($user_id, 'admission_round', true);
-    $pay = get_user_meta($user_id, 'payment_amount', true);
+    $amount = get_user_meta($user_id, 'payment_amount', true);
 
-    if($a_round == 0) continue;
-
+    if($amount > 99) continue;
 
     $user_email_params = array(
         'first_name' => $user->user_firstname,
@@ -35,13 +35,13 @@ foreach($users as $user_id) :
     );
 
 
-    $email_tmpl = file_get_contents(dirname(__FILE__) . '/../tmpls/accom.txt');
+    $email_tmpl = file_get_contents(dirname(__FILE__) . '/../tmpls/reminder.txt');
 
 
     $email = icps_format_email($email_tmpl, $user_email_params);
 
 
-    $archive_email_tmpl = file_get_contents(dirname(__FILE__) . '/../tmpls/accom_archive.txt');
+    $archive_email_tmpl = file_get_contents(dirname(__FILE__) . '/../tmpls/reminder_archive.txt');
 
 
     $archive_email = icps_format_email($archive_email_tmpl, $archive_email_params);

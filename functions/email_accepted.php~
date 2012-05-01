@@ -3,8 +3,9 @@
 
 
 			       
-$users = get_users('role=applicant&orderby=id&fields=id');
+$users = get_users('role=applicant&orderby=id&fields=id&meta_key=admission_round&meta_value=4');
 
+var_dump($users);
 $archive_address = 'registration@icps2012.com';
 die;
 
@@ -34,8 +35,10 @@ foreach($users as $user_id) :
 	'accepted' => 'yes'
     );
 
+    $file = 'accepted_fullfee.txt';
+    if($user->ID < 586) $file = 'accepted.txt';
 
-    $email_tmpl = file_get_contents(dirname(__FILE__) . '/../tmpls/accom.txt');
+    $email_tmpl = file_get_contents(dirname(__FILE__) . '/../tmpls/'.$file);
 
 
     $email = icps_format_email($email_tmpl, $user_email_params);

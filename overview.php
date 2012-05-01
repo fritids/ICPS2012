@@ -34,6 +34,7 @@ $fields = icps_overview_fields();
 
   <th>Door</th>
   <th>Betaald</th>
+  <th>Jij moet</th>
 </thead>
 <tbody>
 

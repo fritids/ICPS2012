@@ -13,6 +13,8 @@ function populateTable() {
     $('#overview tbody').empty();
     $.each(window.udata, function(i, usr) {
 	var tr = '<tr class="';
+
+	if(usr['application_status'] == 0) tr = tr+'opgekankerd ';
 	if(usr['application_status'] > 2) tr = tr+'roflqwop ';
 	if(usr['application_status'] > 3) tr = tr+'qwopter ';
         tr = tr+'">';
@@ -26,6 +28,7 @@ function populateTable() {
 	});
 	tr=tr+'<td><a href="#" class="approve" data-uid="'+usr.ID+'">klikkerdeklik</a></td>'; // approve
         tr=tr+'<td class="floes"><input type="text" data-uid="'+usr.ID+'"></td>'; // doekoes
+	tr=tr+'<td><a href="#" class="opkankeren" data-uid="'+usr.ID+'">opkankeren</a></td>'; // opkankeren
         tr = tr + '</tr>';
 	rows = rows + tr;
 
@@ -63,16 +66,27 @@ function initListeners() {
 
     $('#reverse').click(function(e) { reverseTable() });
 
-    $('#overview tbody').on('click', 'td', function(e) { e.preventDefault(); var elem = $(e.target); if(elem.hasClass('approve')) {
-	console.log(elem.data('uid'));
+    $('#overview tbody').on('click', 'td', function(e) { 
+        e.preventDefault(); 
+        var elem = $(e.target); 
+        
+        if(elem.hasClass('approve')) {
     
-    $.post('/overview/ajax-uapprove/', {uid: elem.data('uid')}, function(response) {
-	if(response == '1') {
-	    elem.parent().siblings('.field-application_status').text('No');
-	    elem.parent().parent().addClass('roflqwop');
-	}
-    }); 
-    }
+            $.post('/overview/ajax-uapprove/', {uid: elem.data('uid')}, function(response) {
+                if(response == '1') {
+                    elem.parent().siblings('.field-application_status').text('No');
+                    elem.parent().parent().addClass('roflqwop');
+                }
+           }); 
+        } else if(elem.hasClass('opkankeren')) {
+	    $.post('/overview/ajax-uopkankeren/', {uid: elem.data('uid')}, function(response) {
+                if(response == '1') {
+                    elem.parent().parent().removeClass().addClass('opgekankerd');
+		}
+
+             });
+
+        }
     return false; });
     
     $('#overview tbody').on('keypress', 'td.floes input', function(e) {

@@ -1,5 +1,5 @@
 <div id="sidebar">
-    <h3>Sponsors</h3>
+    <a href="/sponsors/"><h3>Sponsors</h3></a>
     <a href="http://www.asml.nl" rel="external"><img src="<?php bloginfo('template_directory') ?>/images/logos/ASML.jpg" alt="ASML"/></a>
     <a href="http://www.panalytical.com" rel="external"><img src="<?php bloginfo('template_directory') ?>/images/logos/PANalytical.jpg" alt="PANalytical"/></a>
 
