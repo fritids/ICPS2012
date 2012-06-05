@@ -124,6 +124,8 @@ form#adetails.collapse legend:after { content: " ▼" }
 .splitrow.checkbox-sub { width: 226px; }
 .splitrow.checkbox-sub input[type=text] { width: 173px; margin-left: 10px; }
 
+.fixed-checkbox span.label { margin-right: 15px; }
+
 span.label { display: block; float: left; font-size: 16px; }
 
 .row input[type=text], .row input[type=email] { width: 95%; border: 1px solid #99AA99; height: 20px; }
@@ -139,6 +141,7 @@ span.label { display: block; float: left; font-size: 16px; }
 
 /* Sponsors */
 ul#main-sponsors { list-style-type: none; margin-top: 40px;  }
+ul#main-sponsors li { margin-bottom: 15px; }
 
 .fb-badge { margin-top: 20px; }
 /* =Reset default browser CSS. Based on work by Eric Meyer:http://meyerweb.com/eric/tools/css/reset/index.html

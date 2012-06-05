@@ -1,0 +1,30 @@
+ICPS 2012 payment reminder
+
+Dear {$first_name},
+
+
+A few weeks ago, we approved your application for the ICPS 2012. The payment deadline was set to May 13. As far as we can see, we have not received the required registration fee from you by now.
+
+We're emailing you to remind you of the deadline. There's still a few days left until May 13, so there's still some time to complete your payment. International bank transfers can take a fwe days, so take that into account when making the transfer.
+
+Also, please be aware that this is an automated email. If you have been in touch with the committee about your situation, you can safely disregard this message.
+
+For your convenience, here are the required transfer details:
+
+The transaction details:
+Transaction tag:  {$email_id}
+IBAN/SEPA:  NL79RABO0119526689
+BIC:  RABONL2U
+Bank:  Rabobank
+Bank Address:  Maliebaan 53, 3581 CD Utrecht, The Netherlands
+Account owner:  St. ICPS 2012 Nederland
+Owner Address:  Princetonplein 5, 3584 CC Utrecht, The Netherlands
+
+If you're part of a group payment, please contact the people responsible for taking care of this.
+
+We hope to see you in August!
+
+
+Kind regards,
+
+Joren Brunekreef

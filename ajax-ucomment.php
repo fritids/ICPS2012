@@ -1,6 +1,6 @@
 <?php
 /*
-** Template name: ajax-uopkankeren
+** Template name: ajax-ucomment
 */
 
 if( !isset($current_user) )
@@ -16,8 +16,7 @@ $udata = get_userdata($uid);
 
 if(!$udata) die;
 
-update_user_meta($uid, 'application_status', 0);
-update_user_meta($uid, 'revoke_round', '5');
+$return = get_metadata('user', $uid);
 
-echo '1';
+echo json_encode($return);
 

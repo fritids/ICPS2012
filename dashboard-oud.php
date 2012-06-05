@@ -1,10 +1,10 @@
 <?php
 /*
-** Template name: Dashboard-new
+** Template name: Dashboard-2.0
 */
 
 require 'functions/register.php';
-require 'functions/perms.php';
+
 $errors = array();
 
 if ('POST' == $_SERVER['REQUEST_METHOD'] ) :
@@ -39,11 +39,6 @@ if('POST' == $_SERVER['REQUEST_METHOD'] ) :
         $outcome = icps_update_udetails($current_user->ID, $_POST);
 	if(!$outcome) : $errors[] = 2; endif;
      else : die;
-     endif;
-   elseif ($_POST['intent'] == 'adetails') :
-     if(wp_verify_nonce($_POST['icnonsense'], 'adetails') ) :
-       $outcome = icps_update_adetails($current_user->ID, $_POST);
-       if(!$outcome) : $errors[] = 2; endif;
      endif;
   endif;
 endif;
@@ -89,7 +84,7 @@ if($current_user->ID === 0) : // no user logged in, display login screen
 <?php
 else : // user is logged in
 
-$uid = $current_user->ID;
+
 ?>
   <h2>User dashboard</h2>
   
@@ -98,15 +93,17 @@ $uid = $current_user->ID;
   <div id="application">
     <h4>Application</h4>      
     <?php
-    if(icps_check_status($uid, 'revoked')) :
+    $a_status = (int) get_user_meta($current_user->ID, 'application_status', true);
+    
+    if($a_status === 0) :
       ?>
       <p>Unfortunately, your application has been cancelled. This might be because your payment has not arrived in time. If you think there has been a misunderstanding, please don't hesitate to contact us.</p>
-      <?php 
-    elseif(!icps_check_status($uid, 'approved')) :
+      <?php
+    elseif($a_status === 1) :
       ?>
       <div id="application-status" class="pending">Pending</div>
       <?php
-    elseif(icps_check_status($uid, 'approved')) :
+    elseif($a_status % 4 >= 2) :
       ?>
       <?php if(!empty($errors)) : ?>
       <div id="errors">
@@ -115,7 +112,7 @@ $uid = $current_user->ID;
       <?php endif; ?>
       <div id="application-status" class="approved">
         <div class="progress application check"><p>Application approved</p></div>
-	<?php if(icps_check_status($uid, 'personal_info')) : ?>
+	<?php if($a_status % 8 >= 4) : ?>
           <div class="progress further-information check">
 	       <p>Personal details complete</p>
           </div>
@@ -125,7 +122,7 @@ $uid = $current_user->ID;
 	  </div>
 	<?php endif; ?>
 
-	<?php if(icps_check_status($uid, 'payment_complete')) : ?>
+	<?php if($a_status % 16 >= 8) : ?>
 	  <div class="progress payment check">
 	    <p>Payment received</p>
 	  </div>
@@ -139,8 +136,8 @@ $uid = $current_user->ID;
       </div>
 
 <div id="personal-information">
-<form name="udetails" id="udetails" class="details   <?php echo (icps_check_status($uid, 'personal_info')) ? 'collapse' : '' ?>" action="" method="post">
-<legend <?php echo (icps_check_status($uid, 'personal_info')) ? 'class="complete"' : '' ?>>Personal details</legend>
+<form name="udetails" id="udetails" action="" method="post"  <?php echo ($a_status % 8 >= 4) ? 'class="collapse"' : '' ?>>
+<legend <?php echo ($a_status % 8 >= 4) ? 'class="complete"' : '' ?>>Personal details</legend>
 <div class="fieldwrapper">
 <?php 
 $fields = icps_user_editable_fields($current_user->ID);
@@ -175,7 +172,7 @@ endforeach;
 
 <label class="row terms">
 <span class="label">I agree to the <a href="#" id="toggleterms">terms and conditions</a>.</span>
-<input type="checkbox" name="term_agree" <?php echo icps_check_status($uid, 'personal_info') ? 'checked="checked"' : '' ?> />
+<input type="checkbox" name="term_agree" <?php echo ($a_status % 8 >= 4) ? 'checked="checked"' : '' ?> />
 </label>
 <div class="clear"></div>
 
@@ -195,116 +192,32 @@ endforeach;
 <script>
 $(function() {
     $('label.date input').datepicker({changeYear: true, yearRange: '1950:2000', dateFormat: 'd MM yy'});
-    <?php echo (icps_check_status($uid, 'personal_info')) ? "$('#udetails legend').click(function() { $('#udetails').toggleClass('collapse'); });" : "" ?>
+    <?php echo ($a_status % 8 >= 4) ? "$('#udetails legend').click(function() { $('#udetails').toggleClass('collapse'); });" : "" ?>
     $('a#toggleterms').click(function(e) { e.preventDefault(); $('#terms').toggle() } );
 });
 </script>
 </div>
 </form>
-</div><!-- #personal-information -->
-
-
-<div id="additional-information">
-  <form name="adetails" class="details collapse" id="adetails" action="" method="post">
-    <legend>Additional details</legend>
-    <div class="fieldwrapper">
-
-
-      <label class="row fixed-checkbox">
-        <span class="label">Extra night before: <?php echo get_user_meta($current_user->ID, 'extra_day_pre', true) == 'on' ? 'Yes' : 'No' ?></span>
-      </label>
-              
-      <label class="row fixed-checkbox">
-        <span class="label">Extra night after: <?php echo get_user_meta($current_user->ID, 'extra_day_post', true) == 'on' ? 'Yes' : 'No' ?></span>
-      </label>
-      
-      <div class="clear"></div>        
-      <p style="margin-left: 20px; ">Due to contract time constraints, it is not possible anymore to change your preferences for extra nights. Also, extra nights are only possible in StayOkay Bunnik. For more information, check the <a href="/location/accommodation">accommodation page</a>.</p>
-      <label class="row custom-acco-select">
-        <span class="label">Preferred accommodation</span>
-              <select name="preferred_accommodation">
-<?php
-	$accos = array(array('name' => 'University College Utrecht', 'cap' => 204), array('name' => 'StayOkay Hostel Bunnik', 'cap' => 138), array('name' => 'Bed&Breakfast Utrecht', 'cap' => 43));
-
-	foreach($accos as $acco) :
-	    $q = "SELECT COUNT(*) FROM icps_usermeta WHERE meta_key = 'preferred_accommodation' AND meta_value = '".$acco['name']."'";
-	    $count = $wpdb->get_var($q);
-	    
-	    if($count < $acco['cap'] || get_user_meta($current_user->ID, 'preferred_accommodation', true) == $acco['name']) :
-                ?>
-                <option value="<?php echo $acco['name'] ?>" <?php echo get_user_meta($current_user->ID, 'preferred_accommodation', true) == $acco['name'] ? 'selected' : '' ?>><?php echo $acco['name'] ?></option>
-	        <?php
-	    endif;
-
-	endforeach;
-?>	      
-              </select>
-      </label> <!-- pref acco -->
-
-      <label class="row custom-exursion-select">
-        <span class="label">Excursion</span> <br>
-              <select name="excursion">
-<?php
-	require 'excursies.php';
-
-	foreach($excursions as $excursion) :
-	    $q = "SELECT COUNT(*) FROM icps_usermeta WHERE meta_key = 'excursion' AND meta_value = '".$excursion['name']."'";
-	    $count = $wpdb->get_var($q);
-	    
-	    if($count < $excursion['cap'] || get_user_meta($current_user->ID, 'excursion', true) == $excursion['name']) :
-                ?>
-                <option value="<?php echo $excursion['name'] ?>" <?php echo get_user_meta($current_user->ID, 'excursion', true) == $excursion['name'] ? 'selected' : '' ?>><?php echo $excursion['name'] ?> <?php echo $excursion['cost'] > 0 ? '(&euro; '.number_format($excursion['cost'],2,',','.').')' : '' ?></option>
-	        <?php
-	    endif;
-
-	endforeach;
-?>	      
-              </select>
-      </label> <!-- excursion -->
-
-<?php
-$fields = icps_additional_detail_fields($current_user->ID);
-$fields = array_slice($fields, 4);
-
-foreach($fields as $field) :
-?>
-      <label class="row <?php echo $field['type'] ?>">
-      <span class="label"><?php echo $field['nicename'] ?></span>
-      <?php if($field['type'] == 'text' || $field['type'] == 'date') : ?>
-          <input type="text" name="<?php echo $field['name'] ?>" value="<?php echo $field['value'] ?>"/>
-      <?php elseif ($field['type'] == 'labeled-checkbox' ) : ?>
-          <input type="checkbox" name="<?php echo $field['name'] ?>" <?php echo $field['value'] == 'on' ? 'checked="checked"' : '' ?> /> <div class="clear"></div>
-      <?php endif; ?>
-      </label>
-<?php endforeach; ?>
-
-      
-      <div class="clear"></div>
-      <label class="row submit">
-        <input type="submit" name="submit" class="button submit" value="Submit" />
-        <input type="hidden" name="intent" value="adetails" />
-        <?php wp_nonce_field('adetails', 'icnonsense', true) ?>
-      </label>
-      <script>
-$(function() {
-    $('#adetails legend').click(function() { $('#adetails').toggleClass('collapse'); });
-});
-</script>
-
-    </div>
-  </form>
-</div><!-- #additional-information -->
+</div>
       <?php
-    endif;
+    endif; // application status > 3 
     ?>
   </div>
 
-<?php if(!icps_check_status($uid, 'revoked')) : ?>
+<?php if($a_status > 0) : ?>
   <p>In due time, you will be able to upload a lecture or poster, which will then be reviewed by the organising committee. Please note: giving a lecture or providing a poster is not compulsory!</p>
 
   <p>To save on transaction fees, you could benefit from a group payment.
 Many National and Local Committees are willing to provide this service
 for you. Please send an e-mail with your request to your own <a href="http://www.iaps.info/members">NC or LC</a>.</p>
+  <div id="lecture">
+    <h4>Lecture</h4>
+    
+  </div>
+
+  <div id="poster">
+    <h4>Poster</h4>
+  </div>
   
   <div id="change-password">
     <p>If you want to change your password, you can do so <a href="/wp-login.php?action=lostpassword">here</a>.</p>

@@ -12,4 +12,4 @@ require 'functions/overview.php';
 
 $uid = (int) $_POST['uid'];
 
-echo update_user_meta( $uid, 'application_status', 3, 1 ) && update_user_meta( $uid, 'admission_round', 4, 0 ) ? '1' : '0';
+echo update_user_meta( $uid, 'application_status', 3, 1 ) && update_user_meta( $uid, 'admission_round', 7, 0 ) ? '1' : '0';

@@ -1,6 +1,6 @@
 * { font-family: "Helvetica Neue", Helvetica, sans-serif; }
 
-table { border-collapse: collapse; }
+table { border-collapse: collapse;}
 td { max-width: 180px; padding: 2px 5px; overflow: hidden; font-size: 11pt; }
 
 #reverse { border: 1px dashed #efefef; width: 100%; height: 30px; }
@@ -12,3 +12,14 @@ tr.qwopter { text-decoration: underline; }
 tr.opgekankerd { color: #999999; text-decoration: line-through; }
 
 td.floes input { width: 40px; }
+
+#reverse { }
+
+#uinfo { position: fixed; top: 0px; height: 180px; width: 100%; border: 1px dashed #9f9f9f; background: #ffdfff; opacity: 0.93; padding-left: 20px; padding-top:10px; }
+#uinfo textarea { width: 300px; height: 95%; border: none; background: none; float: left; }
+#uinfo button { position: absolute; right:30px;top:140px;width:70px;height:50px; }
+
+#uinfo #uinfo-div { height: 175px; overflow-y: scroll; width: 700px; }
+#uinfo ul#uinfo-list { position: relative; float: left; list-style-type: none; margin: 0 0 0 20px; padding: 0; width: 660px;}
+
+#superlijst { margin-top: 200px; overflow-y: scroll; }

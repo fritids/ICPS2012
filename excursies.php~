@@ -1,0 +1,12 @@
+<?php
+
+$excursions = array(
+    array('name' => 'Hoge Veluwe National Park - Panalytical', 'cap' => 50), 
+    array('name' => 'Bavaria Brewery Tour - ASML', 'cap' => 50),
+    array('name' => 'Amsterdam City Center - AMOLF', 'cap' => 50),
+    array('name' => 'Amsterdam City Center - Nikhef', 'cap' => 40),
+    array('name' => 'Beach - ECN', 'cap' => 50),
+    array('name' => 'Den Haag City Center - TNO', 'cap' => 50),
+    array('name' => 'Canoeing - NXP', 'cap' => 50),
+    array('name' => 'Grolsch Brewery Tour - Thales', 'cap' => 50),
+    array('name' => 'Den Haag/Scheveningen - Differ', 'cap' => 30));

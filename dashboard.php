@@ -1,6 +1,6 @@
 <?php
 /*
-** Template name: Dashboard-new
+** Template name: Dashboard
 */
 
 require 'functions/register.php';
@@ -210,18 +210,16 @@ $(function() {
     <div class="fieldwrapper">
 
 
-      <label class="row labeled-checkbox">
-        <span class="label">Extra night before</span>
-          <input type="checkbox" name="extra_day_pre" <?php echo get_user_meta($current_user->ID, 'extra_day_pre', true) == 'on' ? 'checked="checked"' : '' ?>/>
+      <label class="row fixed-checkbox">
+        <span class="label">Extra night before: <?php echo get_user_meta($current_user->ID, 'extra_day_pre', true) == 'on' ? 'Yes' : 'No' ?></span>
       </label>
               
-      <label class="row labeled-checkbox">
-        <span class="label">Extra night after</span>
-          <input type="checkbox" name="extra_day_post" <?php echo get_user_meta($current_user->ID, 'extra_day_post', true) == 'on' ? 'checked="checked"' : '' ?>/>
+      <label class="row fixed-checkbox">
+        <span class="label">Extra night after: <?php echo get_user_meta($current_user->ID, 'extra_day_post', true) == 'on' ? 'Yes' : 'No' ?></span>
       </label>
       
       <div class="clear"></div>        
-      <p style="margin-left: 20px; ">Extra nights are only possible in StayOkay Bunnik. For more information, check the <a href="/location/accommodation">accommodation page</a>.</p>
+      <p style="margin-left: 20px; ">Due to contract time constraints, it is not possible anymore to change your preferences for extra nights. Also, extra nights are only possible in StayOkay Bunnik. For more information, check the <a href="/location/accommodation">accommodation page</a>.</p>
       <label class="row custom-acco-select">
         <span class="label">Preferred accommodation</span>
               <select name="preferred_accommodation">

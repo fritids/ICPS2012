@@ -55,9 +55,16 @@ return array(
 
 function icps_additional_detail_fields($uid) {
     $fields = array( 
-    icps_cast_field('extra_day_pre', 'Extra night before', 'labeled-checkbox', true),
-    icps_cast_field('extra_day_post', 'Extra night after', 'labeled-checkbox', true), 
-    icps_cast_field('preferred_accommodation', 'Preferred accommodation', 'custom-acco-select', true)
+
+    icps_cast_field('preferred_accommodation', 'Preferred accommodation', 'custom-acco-select', true),
+    icps_cast_field('roommate_one', 'Preferred roommate 1', 'text'),
+    icps_cast_field('roommate_two', 'Preferred roommate 2', 'text'),
+    icps_cast_field('excursion', 'Excursion', 'custom-excursion'),
+    icps_cast_field('vegetarian', 'Vegetarian', 'labeled-checkbox'),
+    icps_cast_field('allergies', 'Allergies/food intolerance', 'text'),
+    icps_cast_field('eta', 'Estimated time of arrival', 'text'),
+    icps_cast_field('car', 'Are you travelling by car?', 'labeled-checkbox'),
+
 ) ;
 
     for($i=0; $i < sizeof($fields); $i++) :

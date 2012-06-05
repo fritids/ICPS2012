@@ -3,6 +3,7 @@ $(function() {
     window.udata = null;
     $.getJSON('/overview/json-udata/', function(data) {
 	window.udata = data;
+	initViewport();
 	populateTable();
 	initListeners();
     });
@@ -17,7 +18,7 @@ function populateTable() {
 	if(usr['application_status'] == 0) tr = tr+'opgekankerd ';
 	if(usr['application_status'] > 2) tr = tr+'roflqwop ';
 	if(usr['application_status'] > 3) tr = tr+'qwopter ';
-        tr = tr+'">';
+        tr = tr+'" data-uid="'+usr.ID+'">';
         tr = tr + '<td>'+i+'</td>';
 	$.each(usr, function(j, val) {
             if(j == 'application_status') {
@@ -86,7 +87,24 @@ function initListeners() {
 
              });
 
-        }
+        } /* if hasclass approve */ else if(elem.hasClass('field-ID')) {
+
+	    $.post('/overview/ajax-ucomment/', {uid: elem.parent().data('uid')}, function(response) {
+		var udata = JSON.parse(response);
+		var takeout = ['comment_shortcuts','rich_editing','description','use_ssl','admin_color','show_admin_bar_front','show_admin_bar_admin','aim','yim','jabber','icps_capabilities','icps_user_level'];
+		for(field in udata) {
+		    if($.inArray(field, takeout) != -1) {delete udata[field]; continue;}
+		    udata[field] = udata[field][0];
+		}
+		$('#uinfo textarea').val(udata.comment);
+
+		$('#uinfo-list').html('');
+		for(field in udata) {
+		    $('<li>'+field+': '+udata[field]+'</li>').appendTo('#uinfo ul#uinfo-list');
+		}
+	    });
+	    $('#uinfo').data('uid', elem.parent().data('uid'));
+	} /* if hasclass field-id */
     return false; });
     
     $('#overview tbody').on('keypress', 'td.floes input', function(e) {
@@ -94,9 +112,17 @@ function initListeners() {
 	    var elem = $(e.currentTarget);
 
             $.post('/overview/ajax-upayment/', {uid: elem.data('uid'), amount: elem.val()}, function(response) {
-            console.log(response);
+
 	});
 
 	}
     });
+
+    $('#uinfo button').click(function(e) {
+	$.post('/overview/ajax-ucomment_edit/', {uid: $(this).parent().data('uid'), comment: $(this).siblings('textarea').val()}, function(e) { });
+    });
+}
+
+function initViewport() {
+    $('#superlijst').height($(window).height() - 210);
 }

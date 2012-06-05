@@ -25,6 +25,7 @@ $fields = icps_overview_fields();
 <?php wp_head() ?>
 </head>
 <body>
+<div id="superlijst">
 <button id="reverse">Reverse</button>
 <table id="overview">
 <thead>
@@ -40,3 +41,12 @@ $fields = icps_overview_fields();
 
 </tbody>
 </table>
+</div>
+<div id="uinfo">
+  <textarea></textarea>
+  <button>hup</button>
+
+  <div id="uinfo-div">
+    <ul id="uinfo-list"></ul>
+  </div>
+</div>

@@ -3,22 +3,24 @@
 
 
 			       
-$users = get_users('role=applicant&orderby=id&fields=id&meta_key=admission_round&meta_value=2');
+$users = get_users('role=applicant&orderby=id&fields=id&meta_key=admission_round&meta_value=5');
 $users = array_unique($users);
 //$users = array(443, 659);
-
+//var_dump($users);
 $archive_address = 'registration@icps2012.com';
 
-die;
-/*
 
+die;
 
 $i=0;
 foreach($users as $user_id) :
 
     $user = get_userdata($user_id);
+
+    $a_status = get_user_meta($user_id, 'application_status', true);
     $amount = get_user_meta($user_id, 'payment_amount', true);
 
+    if($a_status == 0) continue;
     if($amount > 99) continue;
 
     $user_email_params = array(
@@ -48,12 +50,12 @@ foreach($users as $user_id) :
 
 
 
-
+/*
     if(!wp_mail($user->user_email, $email['subject'], $email['body'], array('Reply-To: registration@icps2012.com'))) 
         die('user ' . $user->ID);
     if(!wp_mail($archive_address, $archive_email['subject'], $archive_email['body'])) 
         die('archief probleem' . $user->ID);
-
+*/
 
 $i++;
 
