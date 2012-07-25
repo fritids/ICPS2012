@@ -2,6 +2,8 @@
     <a href="/sponsors/"><h3>Sponsors</h3></a>
     <a href="http://www.asml.nl" rel="external"><img src="<?php bloginfo('template_directory') ?>/images/logos/ASML.jpg" alt="ASML"/></a>
     <a href="http://www.panalytical.com" rel="external"><img src="<?php bloginfo('template_directory') ?>/images/logos/PANalytical.jpg" alt="PANalytical"/></a>
+	<a href="http://www.asm.com" rel="external"><img width="200px" src="<?php bloginfo('template_directory') ?>/images/logos/ASM.jpg" alt="ASM"/></a>
+	<a href="http://www.uu.nl" rel="external"><img width="200px" src="<?php bloginfo('template_directory') ?>/images/logos/UU.png" alt="UU"/></a>
 
     <h3>Contact Us</h3>
     <address>
@@ -14,7 +16,6 @@
         <br/>
 	External affairs: <br/>
 	<a href="mailto:externalaffairs@icps2012.com">externalaffairs@icps2012.com</a> <br/>
-	+31 6 418 70 034<br/>
         <br/>
         Looking for <a href="/promotional-material/">promotional material</a>? <br/>
         <br>

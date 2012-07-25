@@ -4,7 +4,7 @@
 $users = get_users('role=applicant&orderby=id&fields=id&meta_key=application_status&meta_value=0');
 $users = array_unique($users);
 
-//$users = array(443, 659);
+//$users = array(28, 29);
 
 $archive_address = 'registration@icps2012.com';
 
@@ -17,7 +17,7 @@ foreach($users as $user_id) :
 
     $user = get_userdata($user_id);
 
-    if(get_user_meta($user_id, 'revoke_round', true) != 5) continue;
+    if(get_user_meta($user_id, 'revoke_round', true) != 11) continue;
 
     $user_email_params = array(
         'first_name' => $user->user_firstname,
@@ -47,7 +47,7 @@ foreach($users as $user_id) :
 
 
 /*
-    if(!wp_mail($user->user_email, $email['subject'], $email['body'], array('Reply-To: registration@icps2012.com'))) 
+   if(!wp_mail($user->user_email, $email['subject'], $email['body'], array('Reply-To: registration@icps2012.com'))) 
         die('user ' . $user->ID);
     if(!wp_mail($archive_address, $archive_email['subject'], $archive_email['body'])) 
         die('archief probleem' . $user->ID);

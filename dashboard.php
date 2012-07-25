@@ -138,6 +138,31 @@ $uid = $current_user->ID;
         <div class="clear"></div>
       </div>
 
+       <?php
+       $paid_amount = get_user_meta($current_user->ID, 'payment_amount', true);
+       $total_payment = get_user_meta($current_user->ID, 'total_payment', true);
+       $debt = ((int) $total_payment) - ((int) $paid_amount);
+       if($debt > 0 && $paid_amount != 0) :
+       ?>
+       <div id="debt">
+       <dl>
+       <dt>Total required funds: </dt>
+       <dd><?php echo $total_payment ?></dd>
+
+       <dt>Received funds: </dt>
+       <dd><?php echo $paid_amount ?></dd>
+
+       <dt class="emph">Amount to be paid (cash) upon arrival: </dt>
+       <dd class="emph"><?php echo $debt ?></dd>
+       </dl>
+       <div class="clear"></div>
+       </div>
+       <?php
+       endif; // debt
+       ?>
+
+<div>We have heard some have problems filling in these forms. If you encounter such difficulties, please use another (recently updated) browser or <a href="mailto:registration@icps2012.com">email us</a>.</div>
+
 <div id="personal-information">
 <form name="udetails" id="udetails" class="details   <?php echo (icps_check_status($uid, 'personal_info')) ? 'collapse' : '' ?>" action="" method="post">
 <legend <?php echo (icps_check_status($uid, 'personal_info')) ? 'class="complete"' : '' ?>>Personal details</legend>
@@ -203,7 +228,6 @@ $(function() {
 </form>
 </div><!-- #personal-information -->
 
-
 <div id="additional-information">
   <form name="adetails" class="details collapse" id="adetails" action="" method="post">
     <legend>Additional details</legend>
@@ -219,10 +243,20 @@ $(function() {
       </label>
       
       <div class="clear"></div>        
-      <p style="margin-left: 20px; ">Due to contract time constraints, it is not possible anymore to change your preferences for extra nights. Also, extra nights are only possible in StayOkay Bunnik. For more information, check the <a href="/location/accommodation">accommodation page</a>.</p>
+      <p style="margin-left: 20px; ">To book (or cancel) an extra night, please send an email to <a href="mailto:registration@icps2012.com">registration@icps2012.com</a></p>
+
       <label class="row custom-acco-select">
-        <span class="label">Preferred accommodation</span>
-              <select name="preferred_accommodation">
+        <span class="label">Accommodation: 
+	   <?php 
+		$acco = get_user_meta($current_user->ID, 'preferred_accommodation', true);
+		echo $acco == '' ? 'No preference' : $acco 
+	   ?>
+	   <input type="hidden" name="preferred_accommodation" value="<?php echo $acco ?>"></input>
+	</span>
+      </label>
+      <div class="clear"></div>  
+<?php /*
+<!--              <select name="preferred_accommodation">
 <?php
 	$accos = array(array('name' => 'University College Utrecht', 'cap' => 204), array('name' => 'StayOkay Hostel Bunnik', 'cap' => 138), array('name' => 'Bed&Breakfast Utrecht', 'cap' => 43));
 
@@ -232,15 +266,117 @@ $(function() {
 	    
 	    if($count < $acco['cap'] || get_user_meta($current_user->ID, 'preferred_accommodation', true) == $acco['name']) :
                 ?>
+
+
                 <option value="<?php echo $acco['name'] ?>" <?php echo get_user_meta($current_user->ID, 'preferred_accommodation', true) == $acco['name'] ? 'selected' : '' ?>><?php echo $acco['name'] ?></option>
+
+	        <?php
+	    endif;
+
+	endforeach;
+?>      
+              </select>
+      </label>--> <!-- pref acco --> <?php */ ?>
+
+      <label class="row text">
+          <span class="label">Preferred roommate 1</span>
+          <input type="text" name="roommate_one" value="<?php echo get_user_meta($current_user->ID, 'roommate_one', true) ?>"/>
+      </label>
+
+      <label class="row text">
+          <span class="label">Preferred roommate 2</span>
+          <input type="text" name="roommate_two" value="<?php echo get_user_meta($current_user->ID, 'roommate_two', true) ?>"/>
+      </label>
+
+      <label class="row text">
+          <span class="label">Preferred roommate 3</span>
+          <input type="text" name="roommate_three" value="<?php echo get_user_meta($current_user->ID, 'roommate_three', true) ?>"/>
+      </label>
+	  
+	  <label class="row custom-mixedroom-checkbox" style="margin-top: 3px;">
+        <span class="label" style="width: 230px;">Check this box if you have objections to sleeping in a mixed gender room</span>
+	  <input type="checkbox" name="mixed_room" <?php echo get_user_meta($current_user->ID, 'mixed_room', true) == 'on' ? 'checked="checked"' : '' ?>></input>
+	<div class="clear"></div>
+      </label>
+
+      <label class="row custom-excursion-select">
+        <span class="label"><a target="_blank" href="programme/excursions/">Excursion</a></span> <br>
+<?php /*              <select name="excursion">
+<?php
+	require 'excursies.php';
+
+	foreach($excursions as $excursion) :
+	    $q = "SELECT COUNT(*) FROM icps_usermeta WHERE meta_key = 'excursion' AND meta_value = '".$excursion['name']."'";
+	    $count = $wpdb->get_var($q);
+	    
+	    if($count < $excursion['cap'] || get_user_meta($current_user->ID, 'excursion', true) == $excursion['name']) :
+                ?>
+                <option value="<?php echo $excursion['name'] ?>" <?php echo get_user_meta($current_user->ID, 'excursion', true) == $excursion['name'] ? 'selected' : '' ?>><?php echo $excursion['name'] ?> <?php echo $excursion['cost'] > 0 ? '(&euro; '.number_format($excursion['cost'],2,',','.').')' : '' ?></option>
 	        <?php
 	    endif;
 
 	endforeach;
 ?>	      
+              </select> */ ?>
+
+	<span><?php echo get_user_meta($current_user->ID, 'excursion', true) ?></span>
+	<input type="hidden" name="excursion" value="<?php echo get_user_meta($current_user->ID, 'excursion', true) ?>"></input>
+      </label> <!-- excursion -->
+
+      <label class="row custom-shirtsize-select">
+        <span class="label">Shirt size</span> <br>
+              <select name="shirt_size">
+<?php
+	$sizes = array('S', 'M', 'L', 'XL');
+
+	foreach($sizes as $size) :
+                ?>
+                <option value="<?php echo $size ?>" <?php echo get_user_meta($current_user->ID, 'shirt_size', true) == $size ? 'selected' : '' ?>><?php echo $size ?> </option>
+	        <?php
+
+	endforeach;
+?>	      
               </select>
+      </label> <!-- shirt_size -->
+
+<div class="row custom-gender-radio">
+        <span class="label">Gender</span>
+	  <input type="radio" name="gender" value="m" <?php echo get_user_meta($current_user->ID, 'gender', true) == 'm' ? 'checked="checked"' : '' ?>>Male</input>
+	  <input type="radio" name="gender" value="v" <?php echo get_user_meta($current_user->ID, 'gender', true) == 'v' ? 'checked="checked"' : '' ?>>Female</input>
+	<div class="clear"></div>
+      </div>
+
+<?php
+$fields = icps_additional_detail_fields($current_user->ID);
+$fields = array_slice($fields, 8, 4);
+
+foreach($fields as $field) :
+?>
+      <label class="row <?php echo $field['type'] ?>">
+      <span class="label"><?php echo $field['nicename'] ?></span>
+      <?php if($field['type'] == 'text' || $field['type'] == 'date') : ?>
+          <input type="text" name="<?php echo $field['name'] ?>" value="<?php echo $field['value'] ?>"/>
+      <?php elseif ($field['type'] == 'labeled-checkbox' ) : ?>
+          <input type="checkbox" name="<?php echo $field['name'] ?>" <?php echo $field['value'] == 'on' ? 'checked="checked"' : '' ?> /> <div class="clear"></div>
+      <?php endif; ?>
       </label>
-      
+<?php endforeach; ?>
+
+
+	<?php if(get_user_meta($current_user->ID, 'lecture_sub', true) != '') :	?>
+		<label class="row textarea">
+			<span class="label">Lecture abstract (preferably in LaTeX)</span>
+			<textarea name="lecture_abstract"><?php echo get_user_meta($current_user->ID, 'lecture_abstract', true) ?></textarea>
+		</label>
+	<?php endif; //lecture abstract ?>
+    
+	<?php if(get_user_meta($current_user->ID, 'poster_sub', true) != '') :	?>
+		<label class="row textarea">
+			<span class="label">Poster abstract (preferably in LaTeX)</span>
+			<textarea name="poster_abstract"><?php echo get_user_meta($current_user->ID, 'poster_abstract', true) ?></textarea>
+		</label>
+	<?php endif; //lecture abstract ?>
+	
       <div class="clear"></div>
       <label class="row submit">
         <input type="submit" name="submit" class="button submit" value="Submit" />
@@ -262,8 +398,6 @@ $(function() {
   </div>
 
 <?php if(!icps_check_status($uid, 'revoked')) : ?>
-  <p>In due time, you will be able to upload a lecture or poster, which will then be reviewed by the organising committee. Please note: giving a lecture or providing a poster is not compulsory!</p>
-
   <p>To save on transaction fees, you could benefit from a group payment.
 Many National and Local Committees are willing to provide this service
 for you. Please send an e-mail with your request to your own <a href="http://www.iaps.info/members">NC or LC</a>.</p>

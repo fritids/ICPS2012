@@ -22,8 +22,8 @@ function populateTable() {
         tr = tr + '<td>'+i+'</td>';
 	$.each(usr, function(j, val) {
             if(j == 'application_status') {
-		if(val < 3) val = 'Yes';
-		else val = 'No';
+		/**if(val < 3) val = 'Yes';
+		else val = 'No';**/
 	    }
 	    tr = tr + '<td class="field-'+j+'">' + val + '</td>';
 	});

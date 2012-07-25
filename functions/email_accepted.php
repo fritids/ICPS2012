@@ -1,12 +1,9 @@
 <?php
-
-
-
 			       
-$users = get_users('role=applicant&orderby=id&fields=id&meta_key=admission_round&meta_value=7');
+  $users = get_users('role=applicant&orderby=id&fields=id&meta_key=admission_round&meta_value=12');
 
-//$users = array(443, 659);
-var_dump($users);
+// $users = array(29,28);
+//var_dump($users);
 $archive_address = 'registration@icps2012.com';
 
 
@@ -45,8 +42,8 @@ foreach($users as $user_id) :
 
 
 
-/*
-    if(!wp_mail($user->user_email, $email['subject'], $email['body'], array('Reply-To: registration@icps2012.com'))) 
+
+/*   if(!wp_mail($user->user_email, $email['subject'], $email['body'], array('Reply-To: registration@icps2012.com'))) 
         die('user ' . $user->ID);
     if(!wp_mail($archive_address, $archive_email['subject'], $archive_email['body'])) 
         die('archief probleem' . $user->ID);
@@ -54,6 +51,6 @@ foreach($users as $user_id) :
 
 $i++;
 
-echo $user_id . ' ' . $file . '<br>';    
+echo $user_id . ' ' . $user->user_firstname . ' ' . $user->user_lastname . ' ' . $file . '<br>';    
 endforeach;
 echo $i;

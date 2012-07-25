@@ -18,73 +18,76 @@ function b(start, title, sub, type) {
 var schedule = [
   [
       b(8, "", "", types._NONE),
-    b(14.5, "Arrival", "", types._GENERAL),
-    b(18.5, "Dinner", "Buffet", types._FOOD),
-    b(20, "Opening", types._GENERAL),
+    b(9, "Arrival", "", types._GENERAL),
+    b(19, "Dinner", "Buffet", types._FOOD),
     b(20.5, "Break", "", types._BREAK),
-    b(21, "Welcome party", "Welcome Party", types._PARTY)
+    b(21, "Opening", types._GENERAL),
+    b(21.5, "Welcome party", "Welcome Party", types._PARTY)
   ],
   [
       b(8, "Breakfast", "", types._FOOD),
-      b(9.25, "Opening lecture", "", types._GLECTURE),
+      b(9, "Opening lecture", "", types._GLECTURE),
       b(11, "Break", "", types._BREAK),
       b(11.5, "Student lectures", "", types._SLECTURE),
-      b(13, "City tour Utrecht/AGM", "Including lunch. Parallel session: annual general meeting of IAPS", types._EXTERNAL),
-      b(18.5, "Dinner", "In town", types._FOOD),
-      b(20.5, "Break", "", types._BREAK),
-      b(21, "Costume party", "Costume party", types._PARTY)
+      b(12.5, "Guest lecture", "", types._GLECTURE),
+      b(13.5, "City tour Utrecht/AGM", "Including lunch. Parallel: annual general meeting of IAPS", types._EXTERNAL),
+      b(19, "Dinner", "In town", types._FOOD),
+      b(21, "Break", "", types._BREAK),
+      b(21.5, "Costume party", "Costume party", types._PARTY)
   ],
   [
       b(8, "Breakfast", "", types._FOOD),
-      b(9.25, "Student lectures", "", types._SLECTURE),
+      b(9, "Student lectures", "", types._SLECTURE),
       b(11, "Break", "", types._BREAK),
       b(11.5, "Guest lecture", "", types._GLECTURE),
       b(12.5, "Lunch", "Accompanied by company info stands", types._FOOD),
       b(14, "Guest lecture", "", types._GLECTURE),
       b(15, "IAPS workshop", "", types._GENERAL),
-      b(15.5, "Student lectures", "", types._SLECTURE),
-      b(16.5, "Poster session", "with drinks", types._POSTER),
-      b(18.5, "Dinner", "", types._FOOD),
-      b(20.5, "Free night", "", types._NONE)
+      b(16, "Student lectures", "", types._SLECTURE),
+      b(17.5, "Poster session", "with drinks", types._POSTER),
+      b(19, "Dinner", "", types._FOOD),
+      b(21, "Free night", "", types._NONE)
   ],
   [
       b(8, "Breakfast", "", types._FOOD),
-      b(9.25, "Transit to Twente", "", types.GENERAL),
+      b(9, "Transit to Twente", "", types.GENERAL),
       b(11, "Reception", "", types._GENERAL),
-      b(11.5, "Opening (headmaster) and guest lecture", "", types._GLECTURE),
+      b(11.5, "Opening (rector)", "", types._GENERAL),
+      b(12, "Guest lecture", "", types._GLECTURE),
       b(13, "Lunch", "", types._FOOD),
-      b(14, "Open labs and tours", "", types._EXTERNAL),
+      b(14, "Lab tours", "", types._EXTERNAL),
       b(16.5, "Break", "", types._BREAK),
-      b(17.5, "Student lectures", "", types._SLECTURE),
-      b(18.5, "Dinner", "", types._FOOD),
-      b(20.5, "Break", "", types._BREAK),
-      b(21, "Dutch party", "Dutch party (continuously available transit back to Utrecht)", types._PARTY)
+      b(17, "Student lectures", "", types._SLECTURE),
+      b(19, "Dinner", "Barbecue", types._FOOD),
+      b(20.5, "Science Quiz", "", types._BREAK),
+      b(21.5, "Dutch party", "Dutch party (continuously available transit back to Utrecht)", types._PARTY)
   ],
   [
       b(8, "Breakfast", "", types._FOOD),
-      b(9.25, "Educational excursions", "", types._EXTERNAL),
+      b(9, "Educational excursions", "", types._EXTERNAL),
       b(13, "Lunch", "", types._FOOD),
       b(14, "Cultural excursions", "", types._EXTERNAL),
-      b(18.5, "Dinner", "", types._FOOD),
-      b(20.5, "Break", "", types._BREAK),
-      b(21, "Nation party", "Nations party", types._PARTY)
+      b(19, "Dinner", "", types._FOOD),
+      b(21, "Break", "", types._BREAK),
+      b(21.5, "Nations party", "", types._PARTY)
   ],
   [
       b(8, "Breakfast", "", types._FOOD),
-      b(9.25, "Student lectures", "", types._SLECTURE),
+      b(9, "Student lectures", "", types._SLECTURE),
       b(11, "Break", "", types._BREAK),
       b(11.5,"Guest lecture", "", types._GLECTURE),
       b(13, "Lunch", "", types._FOOD),
-      b(14, "Guest lecture", "", types._GLECTURE),
-      b(15, "Student lectures", "", types._SLECTURE),
-      b(17, "Formal closing", "", types._GENERAL),
-      b(18.5, "Dinner", "", types._FOOD),
-      b(20.5, "Break", "", types._BREAK),
-      b(21, "Farewell party", "Farewell party", types._PARTY)
+      b(14, "Student lectures", "", types._SLECTURE),
+      b(17, "Break", "", types._BREAK),
+      b(17.5, "Guest lecture", "", types._GLECTURE),
+      b(18.5, "Closing", "", types._GENERAL),
+      b(19, "Dinner", "", types._FOOD),
+      b(21, "Break", "", types._BREAK),
+      b(21.5, "Farewell party", "Farewell party", types._PARTY)
   ],
   [
       b(8, "Breakfast", "", types._FOOD),
-      b(9.25, "Farewell", "", types._NONE),
+      b(9, "Farewell", "", types._NONE),
       b(12, "", "", types._NONE)
   ],
 

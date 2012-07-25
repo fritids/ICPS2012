@@ -6,9 +6,9 @@ Dear {$first_name},
 Congratulations! You have been accepted to the International Conference of Physics Students 2012.
 
 In order to get finally accepted you will have to do two things:
-1. Confirm that you are still willing to attend by replying to this email. If you don't reply before Monday, June 11th, we will have to revoke your admission again.
-2. Provide us with some additional information on www.icps2012.com/dashboard/
-3. Transfer the participation fee and possible IAPS membership fee to our bank account
+1. Confirm that you are still willing to attend by replying to this email. If you don't reply before Friday, July 27th, we will have to revoke your admission again.
+2. Provide us with some additional information as soon as possible on www.icps2012.com/dashboard/
+3. Transfer the participation fee and possible IAPS membership fee to our bank account before Saturday, July 28th. Please send us proof of payment by email as soon as possible, as international bank transfers take a few days.
 
 The participation fee amounts to 200 EUR. If you do not have access to an IAPS National or Local committee (www.iaps.info/members) you have to become an individual member if you are not already one yet. The fee is 10 EUR, which can be paid together with the participation fee, we will transfer it to IAPS. 
 
@@ -19,11 +19,10 @@ Transaction tag:  {$email_id}
 IBAN/SEPA:  NL79RABO0119526689
 BIC:  RABONL2U
 Bank:  Rabobank
-Bank Address:  Maliebaan 53, 3581 CD Utrecht, The Netherlands
+Bank Address:  Croeselaan 18, 3521 CB UTRECHT, The Netherlands
 Account owner:  St. ICPS 2012 Nederland
 Owner Address:  Princetonplein 5, 3584 CC Utrecht, The Netherlands
 
-Please provide the additional information and transfer your payment before June 15th 2012. If you are not in time your acceptance will be revoked and other registrants might take your place. 
 
 If you are not willing to come anymore, have problems with the payment or have any other question, please contact us as soon as possible.
 
@@ -32,4 +31,4 @@ We hope to see you in August!
 
 Kind regards,
 
-Joren Brunekreef
+Nikki Bisschop
