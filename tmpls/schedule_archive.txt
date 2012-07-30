@@ -1,0 +1,9 @@
+ICPS 2012 lecture schedules
+
+We just sent the following user the student lecture schedule:
+
+Name: {$first_name} <> {$last_name}
+Email: {$email}
+ID: {$uuid}
+Accepted: {$accepted}
+

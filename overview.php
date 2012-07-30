@@ -32,7 +32,8 @@ $fields = icps_overview_fields();
 <tr>
 <th>#</th>
 <?php foreach($fields as $field): ?><th data-key="<?php echo $field['name'] ?>"><?php echo $field['nicename'] ?></th><?php endforeach; ?>
-
+  <th>Totaal</th>
+  <th>Verschil</th>
   <th>Door</th>
   <th>Betaald</th>
   <th>Jij moet</th>

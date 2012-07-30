@@ -10,4 +10,6 @@ if( !isset($current_user) )
 if(!(in_array('administrator', $current_user->roles) )) { require '404.php'; die; }
 
 require 'functions/register.php';
+//require 'functions/email_revoked.php';
+
 

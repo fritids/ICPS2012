@@ -1,0 +1,26 @@
+html, body { height: 100%; }
+body { background: #F0F2F2 url(/wp-content/themes/icps2012/images/kankerbrak.jpg); margin: 0; padding: 0; }
+
+.clear { clear: both; }
+
+#logo { display: block; margin: 0 auto; width: 300px; }
+#wrapper { width: 400px; margin: 0 auto; padding: 10px 30px; background: #fff; box-shadow: 0 0 20px #999; min-height: 100%; }
+
+#live { margin: 30px 0; margin: 30px auto; width: 374px; display: block; height: 30px; border: 1px solid #AFAFAF; border-radius: 3px; font-size: 14pt; padding: 0 3px;  }
+
+#results { list-style-type: none; margin: 0; padding: 0 10px; font-family: sans-serif; font-size: 13pt;}
+#results li { padding: 5px 3px; width: 100%; }
+#results li:nth-child(odd) { background: whiteSmoke; }
+#results li:hover { text-decoration: underline; cursor:pointer; }
+
+#user-dialog { position: absolute; width: 500px; height: 315px; background: white; top: 230px; box-shadow: 0 0 6px; margin-left: -50px; display: none; }
+#user-dialog .close { font-family: sans-serif; color: #999; position: absolute; top: 0; right: 0; padding: 2px 5px; font-size: 10pt; cursor: pointer; }
+
+#user-dialog .user-data { padding: 10px 15px; font-family: sans-serif; font-size: 9pt; }
+#user-dialog .user-data .list, #user-dialog .user-data .comments { float: left; }
+#user-dialog .user-data .list { border-right: 1px solid #ccc; width: 234px; } 
+#user-dialog .user-data .comments { width: 235px; } 
+#user-dialog .user-data .comments textarea { width: 230px; height: 180px; margin-left: 3px; resize: none; border: none; }
+
+#user-dialog .user-data .submit { width: 100%;  }
+#user-dialog .user-data .submit button { background: #1B96CF; border: 1px solid #1b96cf; height: 25px; width: 100%; }

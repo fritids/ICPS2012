@@ -1,15 +1,10 @@
 <?php
-
 			       
-$users = get_users('role=applicant&orderby=id&fields=id&meta_key=application_status&meta_value=0');
-$users = array_unique($users);
+  $users = get_users('role=applicant&orderby=id&fields=id');
 
-//$users = array(28, 29);
-
+// $users = array(443, 659);
+//var_dump($users);
 $archive_address = 'registration@icps2012.com';
-
-
-
 
 
 $i=0;
@@ -17,7 +12,6 @@ foreach($users as $user_id) :
 
     $user = get_userdata($user_id);
 
-    if(get_user_meta($user_id, 'revoke_round', true) != 12) continue;
 
     $user_email_params = array(
         'first_name' => $user->user_firstname,
@@ -32,22 +26,30 @@ foreach($users as $user_id) :
 	'accepted' => 'yes'
     );
 
+    $lecture_sub = get_user_meta($user_id, 'lecture_sub', true);
+    $lecture_on = get_user_meta($user_id, 'lecture_b', true);
 
-    $email_tmpl = file_get_contents(dirname(__FILE__) . '/../tmpls/revoked.txt');
+    if(empty($lecture_sub) && empty($lecture_on)) continue;
+var_dump($lecture_sub);
+
+    $file = 'schedule_extra.txt';
+
+    
+    $email_tmpl = file_get_contents(dirname(__FILE__) . '/../tmpls/'.$file);
 
 
     $email = icps_format_email($email_tmpl, $user_email_params);
 
 
-    $archive_email_tmpl = file_get_contents(dirname(__FILE__) . '/../tmpls/revoked_archive.txt');
+    $archive_email_tmpl = file_get_contents(dirname(__FILE__) . '/../tmpls/schedule_archive.txt');
 
 
     $archive_email = icps_format_email($archive_email_tmpl, $archive_email_params);
 
 
 
-
-/*   if(!wp_mail($user->user_email, $email['subject'], $email['body'], array('Reply-To: registration@icps2012.com'))) 
+/*
+   if(!wp_mail($user->user_email, $email['subject'], $email['body'], array('Reply-To: registration@icps2012.com'))) 
         die('user ' . $user->ID);
     if(!wp_mail($archive_address, $archive_email['subject'], $archive_email['body'])) 
         die('archief probleem' . $user->ID);
@@ -55,6 +57,6 @@ foreach($users as $user_id) :
 
 $i++;
 
-echo $user_id . '<br>';    
+echo $user_id . ' ' . $user->user_firstname . ' ' . $user->user_lastname . ' ' . $file . '<br>';    
 endforeach;
 echo $i;

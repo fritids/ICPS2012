@@ -244,19 +244,9 @@ $(function() {
       
       <div class="clear"></div>        
       <p style="margin-left: 20px; ">To book (or cancel) an extra night, please send an email to <a href="mailto:registration@icps2012.com">registration@icps2012.com</a></p>
-
       <label class="row custom-acco-select">
-        <span class="label">Accommodation: 
-	   <?php 
-		$acco = get_user_meta($current_user->ID, 'preferred_accommodation', true);
-		echo $acco == '' ? 'No preference' : $acco 
-	   ?>
-	   <input type="hidden" name="preferred_accommodation" value="<?php echo $acco ?>"></input>
-	</span>
-      </label>
-      <div class="clear"></div>  
-<?php /*
-<!--              <select name="preferred_accommodation">
+        <span class="label">Preferred accommodation</span>
+              <select name="preferred_accommodation">
 <?php
 	$accos = array(array('name' => 'University College Utrecht', 'cap' => 204), array('name' => 'StayOkay Hostel Bunnik', 'cap' => 138), array('name' => 'Bed&Breakfast Utrecht', 'cap' => 43));
 
@@ -266,17 +256,14 @@ $(function() {
 	    
 	    if($count < $acco['cap'] || get_user_meta($current_user->ID, 'preferred_accommodation', true) == $acco['name']) :
                 ?>
-
-
                 <option value="<?php echo $acco['name'] ?>" <?php echo get_user_meta($current_user->ID, 'preferred_accommodation', true) == $acco['name'] ? 'selected' : '' ?>><?php echo $acco['name'] ?></option>
-
 	        <?php
 	    endif;
 
 	endforeach;
-?>      
+?>	      
               </select>
-      </label>--> <!-- pref acco --> <?php */ ?>
+      </label> <!-- pref acco -->
 
       <label class="row text">
           <span class="label">Preferred roommate 1</span>
@@ -301,7 +288,7 @@ $(function() {
 
       <label class="row custom-excursion-select">
         <span class="label"><a target="_blank" href="programme/excursions/">Excursion</a></span> <br>
-<?php /*              <select name="excursion">
+              <select name="excursion">
 <?php
 	require 'excursies.php';
 
@@ -317,10 +304,7 @@ $(function() {
 
 	endforeach;
 ?>	      
-              </select> */ ?>
-
-	<span><?php echo get_user_meta($current_user->ID, 'excursion', true) ?></span>
-	<input type="hidden" name="excursion" value="<?php echo get_user_meta($current_user->ID, 'excursion', true) ?>"></input>
+              </select>
       </label> <!-- excursion -->
 
       <label class="row custom-shirtsize-select">
@@ -365,19 +349,17 @@ foreach($fields as $field) :
 
 	<?php if(get_user_meta($current_user->ID, 'lecture_sub', true) != '') :	?>
 		<label class="row textarea">
-		   <?php /* <span class="label">Lecture abstract (preferably in LaTeX)</span>
+			<span class="label">Lecture abstract (preferably in LaTeX)</span>
 			<textarea name="lecture_abstract"><?php echo get_user_meta($current_user->ID, 'lecture_abstract', true) ?></textarea>
-			*/ ?>
-			<span>Abstract submission has closed. If you'd still like to send in your abstract, please email it to registration@icps2012.com. However, we can't guarantee that we'll be able to include it in our print media, but we'll do our best.</span>
 		</label>
 	<?php endif; //lecture abstract ?>
     
-	<?php /* if(get_user_meta($current_user->ID, 'poster_sub', true) != '') :	?>
+	<?php if(get_user_meta($current_user->ID, 'poster_sub', true) != '') :	?>
 		<label class="row textarea">
 			<span class="label">Poster abstract (preferably in LaTeX)</span>
 			<textarea name="poster_abstract"><?php echo get_user_meta($current_user->ID, 'poster_abstract', true) ?></textarea>
 		</label>
-	<?php endif; */ //lecture abstract ?>
+	<?php endif; //lecture abstract ?>
 	
       <div class="clear"></div>
       <label class="row submit">

@@ -34,7 +34,20 @@ foreach($uids as $uid) :
     $label = $mfield['name'];
     $appldata->$label = get_user_meta($uid, $label, true);
   endforeach;
+
+  $total = 180;
+  if($uid > 586) $total = 200;
+  if(get_user_meta($uid, 'iaps_member', true) == 0) $total += 10;
+
+  $total_zonder = $total;
+
+  if(get_user_meta($uid, 'extra_day_pre', true) == 'on') $total += 25;
+  if(get_user_meta($uid, 'extra_day_post', true) == 'on') $total += 25;
+  $appldata->total_payment = $total;
+
+  $appldata->difference = $total_zonder - $appldata->payment_amount;
   
+
   $applicants[] = $appldata;
 endforeach;
 

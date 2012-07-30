@@ -19,8 +19,9 @@ function icps_setup() {
     wp_register_script('programme', get_template_directory_uri() . '/scripts/programme.js');
     wp_register_script('overview', get_template_directory_uri() . '/scripts/overview.js');
     wp_register_script('check-in', get_template_directory_uri() . '/scripts/check-in.js');
-
-    remove_theme_support('automatic-feed-links');
+    wp_register_script('tmpl', 'http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js');
+    
+	remove_theme_support('automatic-feed-links');
 
 }
 

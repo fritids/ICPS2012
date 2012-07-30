@@ -19,7 +19,7 @@ if(!$udata) die;
 update_user_meta($uid, 'application_status', 0);
 update_user_meta($uid, 'extra_day_pre', '');
 update_user_meta($uid, 'extra_day_post', '');
-update_user_meta($uid, 'revoke_round', '11');
+update_user_meta($uid, 'revoke_round', '12');
 update_user_meta($uid, 'preferred_accomodation', '');
 update_user_meta($uid, 'excursion', '');
 echo '1';

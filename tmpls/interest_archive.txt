@@ -1,0 +1,7 @@
+ICPS 2012 interest inquiry
+
+We just sent the following user a interest inquiry:
+
+Name: {$first_name} <> {$last_name}
+Email: {$email}
+ID: {$uuid}

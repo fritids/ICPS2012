@@ -1,0 +1,44 @@
+ICPS 2012 - Arrival information
+
+Dear {$first_name},
+
+We are only one week away from the International Conference of Physics Students 2012. Hopefully, you're as excited as we are! We send you this email in order to provide you with some useful information concerning your arrival and stay in Utrecht.
+
+We hope you have already made travel arrangements for coming here. Directions to the check-in desk can be found at http://www.icps2012.com/location/travel-information/. Check-in will take place at the UCU Campus (starting 09:00 AM), regardless of your accommodation location. If you are planning to drive here by car, you can park your vehicle here for the duration of the week. For walking directions from the bus stop (from Central Station, take line 4 to Burg. Fockema Andrealaan, exit at Hobbemastraat) nearest to the campus, please check http://goo.gl/maps/fIId.
+
+The address for check-in is:
+Maupertuusplein 1
+3584 EE Utrecht
+Netherlands
+
+Upon arrival, you will receive your bicycle for the week. However, in order to finalize your check-in, you will have to sign a contract. You can already have a quick look into this contract at http://www.icps2012.com/check-in_contract.txt. Please do so, this will ensure a swift check-in for all participants.
+
+<!-- geld -->
+Our records indicate that you still have to pay EUR {$payment_remainer}. You will be required to do this upon check-in. Unfortunately, we can only accept cash. It's a 15 minute walk to the nearest ATM machine, so please try to withdraw some cash on beforehand.
+
+After check-in, you will probably want to drop off your luggage at your accommodation location. Since riding a bicycle might be hard enough, we have arranged for a luggage transportation service. To make sure you don't lose your luggage, please attach name tags to all your bags.
+
+You will not need to bring any bedsheets. However, we do not provide towels, so don't forget to bring your own.
+
+<!-- UCU -->
+You will be staying at the University College Utrecht Campus. If you wish to access the internet in your room, please bring your own Ethernet cable, as there is no WiFi access.
+
+<!-- B&B -->
+You will be staying at the Bed&Breakfast Utrecht City Center. This accommodation offers lockers, but you will have to bring your own padlock if you want to make use of this service.
+
+<!-- lecture -->
+You are scheduled to present a lecture. If you'd like to accompany your lecture by a digital presentation, we would like to receive the file before the end of breakfast on the day of your lecture at the latest. You can do this by emailing it to presentation@icps2012.com, or handing over a USB Flash drive containing the presentation to a member of the organising committee. We ask this so that we can transfer the presentation to the computer in the lecture room, which will save time and frustrations during the sessions.
+
+<!-- poster -->
+You are presenting a poster at this year's conference. Please bring a printed version of your poster, preferably size A1. The poster session will take place on Monday, August 6th.
+
+
+Although you wil receive a print version upon arrival, you can already check out the general information booklet at http://www.icps2012.com/general-information.pdf. The same holds for the abstracts booklet for the student lectures, which can be found at http://www.icps2012.com/studentabstracts.pdf.
+
+We hope to see you next week! If you have some remaining questions, do not hesitate to contact us by email or phone.
+
+
+Kind regards,
+
+On behalf of the ICPS 2012 committee,
+Joren Brunekreef

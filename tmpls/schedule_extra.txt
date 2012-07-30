@@ -1,0 +1,10 @@
+ICPS 2012 student lecture schedule confirmation
+
+Dear {$first_name},
+
+Sorry for bothering you again. In emailing you yesterday, we forgot to ask you to confirm your lecture. We'd like to know whether you're still planning to present, and whether the time we planned your talk fits your schedule. If not, please contact us before Wednesday, July 25th! Thank you in advance.
+
+
+Kind regards,
+
+Joren Brunekreef

@@ -1,0 +1,19 @@
+ICPS 2012 update
+
+Dear {$first_name},
+
+
+We're emailing you to inform you that your dashboard has been updated. You can now specify several additional details, such as preferred roommates, which excursion you'd like to join, and possible food allergies. Also, people who have shown interest in presenting a poster or giving a lecture are now able to submit their abstracts. 
+
+You can find the form under the dropdown 'Additional details', after logging in to http://www.icps2012.com/dashboard/.
+
+Please fill out these details as soon as possible, so that we have enough time on hands to make everything fit the way you want it. If you have any questions about the procedure, or experience difficulties saving your preferences, don't hesitate to email us at registration@icps2012.com.
+
+Also, please note that this is an automated email.
+
+We hope to see you in August!
+
+
+Kind regards,
+
+Joren Brunekreef

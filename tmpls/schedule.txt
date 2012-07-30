@@ -1,0 +1,14 @@
+ICPS 2012 student lecture schedule
+
+Dear {$first_name},
+
+We'd like to announce that the student lecture schedule is now available on our website. You can find it at http://www.icps2012.com/studentlectures_schedule.xls
+
+Please note that "Rood", "Wit", "Blauw" and "Waaier" are the names for the rooms you're assigned to. If you're teaming up for a lecture, try looking for names of your partners.
+
+If you have any questions, don't hesitate to contact us.
+
+
+Kind regards,
+
+Joren Brunekreef

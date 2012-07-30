@@ -1,0 +1,8 @@
+ICPS 2012 update sent
+
+We sent the following user some information about the updated dashboard.
+
+{$first_name} <> {$last_name}
+{$email}
+{$uuid}
+

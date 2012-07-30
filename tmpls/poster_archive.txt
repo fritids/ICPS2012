@@ -1,0 +1,8 @@
+ICPS 2012 poster acceptance
+
+We just sent the following user a notification of acceptance of poster presentation:
+
+Name: {$first_name} <> {$last_name}
+Email: {$email}
+ID: {$uuid}
+

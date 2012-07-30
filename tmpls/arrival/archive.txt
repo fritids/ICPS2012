@@ -1,0 +1,5 @@
+Arrival information sent
+
+Naam: {$first_name} <>  {$last_name}
+Email: {$email}
+ID: {$uuid}
