@@ -1,8 +1,0 @@
-Application received
-Naam: {$first_name} .  {$last_name}
-Email: {$email}
-Land: {$country}
-Universiteit: {$university}
-Studie: {$study}
-Niveau: {$level}
-Bijdragen: {$contribute}

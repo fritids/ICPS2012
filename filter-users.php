@@ -28,17 +28,20 @@ $matches[] = $field['prefix'].'.meta_value LIKE "%'.$term.'%"';
 endforeach;
 endforeach;
 
-$head = 'SELECT S.user_id, ';
+$head = 'SELECT S.user_id, C.meta_value checked_in, ';
 $from = ' FROM icps_usermeta S ';
 $statusjoin = ' INNER JOIN icps_usermeta A'
 	.' ON (S.user_id = A.user_id)';
+$checkinjoin = ' INNER JOIN icps_usermeta C'
+  .' ON (S.user_id = C.user_id)';
 $where = ' WHERE ';
 $and = ' AND (';
 $tail = ') ';
-$statuswhere = ' AND A.meta_key = "application_status" AND A.meta_value > 3';
+$statuswhere = ' AND A.meta_key = "application_status" AND A.meta_value > 2';
+$checkinwhere = ' AND C.meta_key = "checked_in"';
 $group = ' GROUP BY user_id ';
 
-$query = $head . implode(', ', $columns) . $from . implode(' ', $joins) . $statusjoin . $where . implode(' AND ', $wheres) . $and . implode(' OR ', $matches) . $tail . $statuswhere . $group;
+$query = $head . implode(', ', $columns) . $from . implode(' ', $joins) . $statusjoin . $checkinjoin . $where . implode(' AND ', $wheres) . $and . implode(' OR ', $matches) . $tail . $statuswhere . $checkinwhere . $group;
 
 $rows = $wpdb->get_results($query, ARRAY_A);
 

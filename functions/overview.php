@@ -18,7 +18,7 @@ function icps_cast_ov($name, $nicename) {
 
 function icps_overview_metafields() {
   return array(
-	icps_cast_ov('country', 'Country'), icps_cast_ov('application_status', 'Gay'), icps_cast_ov('passport_nr','pasnr'), icps_cast_ov('preferred_accommodation','Acco'), icps_cast_ov('roommate_one', 'Roommate#1'), icps_cast_ov('roommate_two', 'Roommate#2'), icps_cast_ov('roommate_three', 'Roommate#3'),icps_cast_ov('gender','m/v'), icps_cast_ov('mixed_room','apart'),icps_cast_ov('extra_day_pre','voor'),icps_cast_ov('extra_day_post','na'),icps_cast_ov('admission_round','ronde'),icps_cast_ov('payment_amount','betaald')
+	       icps_cast_ov('country', 'Country'), icps_cast_ov('allergies', 'Allergie'), icps_cast_ov('vegetarian', 'Vega'), icps_cast_ov('application_status', 'Gay'), icps_cast_ov('passport_nr','pasnr'), icps_cast_ov('preferred_accommodation','Acco'), icps_cast_ov('roommate_one', 'Roommate#1'), icps_cast_ov('roommate_two', 'Roommate#2'), icps_cast_ov('roommate_three', 'Roommate#3'),icps_cast_ov('gender','m/v'), icps_cast_ov('mixed_room','apart'),icps_cast_ov('extra_day_pre','voor'),icps_cast_ov('extra_day_post','na'),icps_cast_ov('admission_round','ronde'),icps_cast_ov('payment_amount','betaald')
 );
 }
 

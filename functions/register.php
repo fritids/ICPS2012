@@ -7,7 +7,7 @@ function icps_cast_data($first_name, $last_name, $study, $level) {
 	
 }
 
-function icps_cast_field($name, $nicename, $type, $editable, $double = false) {
+function icps_cast_field($name, $nicename, $type = 'text', $editable = false, $double = false) {
     return array('name' => $name, 'value' => null, 'nicename' => $nicename, 'type' => $type, 'editable' => $editable, 'double' => $double);
 }
 

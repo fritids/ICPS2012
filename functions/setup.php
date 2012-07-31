@@ -10,7 +10,8 @@ function icps_setup() {
     wp_register_style('register', get_template_directory_uri() . '/styles/register.css');
     wp_register_style('overview', get_template_directory_uri() . '/styles/overview.css');
     wp_register_style('jquicss', get_template_directory_uri() . '/scripts/jqui/css/smoothness/jquery-ui-1.8.18.custom.css');
-    wp_register_style('check-in', get_template_directory_uri() . '/styles/check-in.css');
+    wp_register_style('check-in', get_template_directory_uri() . '/styles/check-in.css', array(), false, 'screen');
+    wp_register_style('check-in_print', get_template_directory_uri() . '/styles/check-in_print.css', array(), false, 'print');
 
     wp_deregister_script('jquery');
     wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js');

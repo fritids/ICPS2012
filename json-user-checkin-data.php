@@ -12,7 +12,7 @@ $id = $_GET['id'];
 
 $u = get_userdata($id);
 
-$metas = array( 'passport_nr', 'date_of_birth','comment', 'total_payment', 'payment_amount');
+$metas = array( 'passport_nr', 'date_of_birth','comment', 'payment_amount', 'checked_in', 'extra_day_pre', 'extra_day_post', 'iaps_member');
 
 
 $udata = array();
