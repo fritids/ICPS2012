@@ -1,0 +1,22 @@
+body { margin: 0; padding: 0; background: white; font-family: Helvetica, sans-serif;}
+#wrapper { display: none; }
+
+.a4 { width: 210mm; height: 268mm; margin: 0 auto; overflow: hidden; line-height: 1.5em;  }
+.print-wrapper { margin: 19mm 19mm 37mm 19mm; }
+.print-wrapper img.logo { float: right; width: 70mm; margin: 0 0 10mm 10mm; }
+
+.print-wrapper .head { line-height: 1.5em; }
+.print-wrapper dl.personal-info { line-height: 1.5em; }
+.print-wrapper dl.personal-info dd { font-weight: bold; height: 1.5em; width: 20em; }
+.print-wrapper ul { font-size: 11pt; }
+
+#information dl.personal-info dd.incomplete { border-bottom: dotted 1px #aaaaaa; }
+#information dl.sign { line-height: 5em; }
+#information dl.sign dt { width: 5em; clear: left; }
+#information dl.sign dd {  }
+#information dl.sign * { float: left; }
+
+
+
+
+hr.tear { border: 0; border-bottom: 1px dashed #CCC;background: #999; }
