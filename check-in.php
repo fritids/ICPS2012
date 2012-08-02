@@ -9,7 +9,7 @@ if( !isset($current_user) )
 if(!(in_array('administrator', $current_user->roles) || in_array('editor', $current_user->roles))) { require '404.php'; die; }
 
 wp_enqueue_style('check-in');
-  wp_enqueue_style('check-in_print');
+//  wp_enqueue_style('check-in_print');
 wp_enqueue_script('jquery');
 wp_enqueue_script('check-in');
 wp_enqueue_script('tmpl');
@@ -19,8 +19,6 @@ wp_enqueue_script('tmpl');
 <head>
   <title>Check-In</title>
   <?php wp_head() ?>
-<!--  <link rel="alternate stylesheet" title="normale" href="/wp-content/themes/icps2012/styles/check-in.css">
-  <link rel="alternate stylesheet" title="printasdf" href="/wp-content/themes/icps2012/styles/check-in_print.css">-->
 </head>
 <body>
   <div id="wrapper">
@@ -65,17 +63,23 @@ wp_enqueue_script('tmpl');
      </dl>
 </div>
     </div>
-
-    <div id="tear" class="a4">
+<div class="page-break"></div>
+    <div id="twofold" class="a4">
 <div class="print-wrapper">
 <div id="receipt">
 <img src="<?php echo bloginfo('template_directory') ?>/images/icps-logo.png" alt="Logo" class="logo"/>
 <h1>ICPS 2012 Check-In Receipt</h1>
-<p class="head">Info</p>
+  <p class="head">Please show this to the secondary registration officer. He or she will provide you with a key to your room, a key to your bicycle, and a goodie bag.</p>
 <dl class="personal-info"></dl>
 </div>
 <hr class="tear" />
+<div id="bicycle-slip">
+<img src="<?php echo bloginfo('template_directory') ?>/images/icps-logo.png" alt="Logo" class="logo"/>
+<h1>ICPS 2012 Check-In Receipt</h1>
+  <p class="head">.</p>
+  <dl class="personal-info"></dl>
 
+  </div>
 </div>
 
     </div>

@@ -1,33 +1,72 @@
-html, body { height: 100%; }
-body { background: #F0F2F2 url(/wp-content/themes/icps2012/images/kankerbrak.jpg); margin: 0; padding: 0; }
+@media all { 
+  html, body { height: 100%; }
+  body { background: #F0F2F2 url(/wp-content/themes/icps2012/images/kankerbrak.jpg); margin: 0; padding: 0; }
 
-.clear { clear: both; }
+  .clear { clear: both; }
 
-#logo { display: block; margin: 0 auto; width: 300px; }
-#wrapper { width: 400px; margin: 0 auto; padding: 10px 30px; background: #fff; box-shadow: 0 0 20px #999; min-height: 100%; }
+  #wrapper { display: block; }
+  #print { display: none; }
 
-#live { margin: 30px 0; margin: 30px auto; width: 374px; display: block; height: 30px; border: 1px solid #AFAFAF; border-radius: 3px; font-size: 14pt; padding: 0 3px;  }
+  #logo { display: block; margin: 0 auto; width: 300px; }
+  #wrapper { width: 400px; margin: 0 auto; padding: 10px 30px; background: #fff; box-shadow: 0 0 20px #999; min-height: 100%; }
 
-#results { list-style-type: none; margin: 0; padding: 0 10px; font-family: sans-serif; font-size: 13pt;}
-#results li { padding: 5px 3px; width: 100%; }
-#results li:nth-child(odd) { background: #eaeaea; }
-#results li.checked-in { color: #ccc; }
-#results li:hover { text-decoration: underline; cursor:pointer; }
+  #live { margin: 30px 0; margin: 30px auto; width: 374px; display: block; height: 30px; border: 1px solid #AFAFAF; border-radius: 3px; font-size: 14pt; padding: 0 3px;  }
 
-#user-dialog { position: absolute; width: 500px; background: white; top: 230px; box-shadow: 0 0 6px; margin-left: -50px; display: none; }
-#user-dialog .close { font-family: sans-serif; color: #999; position: absolute; top: 0; right: 0; padding: 2px 5px; font-size: 10pt; cursor: pointer; }
+  #results { list-style-type: none; margin: 0; padding: 0 10px; font-family: sans-serif; font-size: 13pt;}
+  #results li { padding: 5px 3px; width: 100%; }
+  #results li:nth-child(odd) { background: #eaeaea; }
+  #results li.checked-in { color: #ccc; }
+  #results li:hover { text-decoration: underline; cursor:pointer; }
 
-#user-dialog .user-data { padding: 10px 15px; font-family: sans-serif; font-size: 9pt; }
-#user-dialog .user-data .list, #user-dialog .user-data .comments { float: left; }
-#user-dialog .user-data .list { border-right: 1px solid #ccc; width: 234px; margin-bottom: 13px; } 
+  #user-dialog { position: absolute; width: 500px; background: white; top: 230px; box-shadow: 0 0 6px; margin-left: -50px; display: none; }
+  #user-dialog .close { font-family: sans-serif; color: #999; position: absolute; top: 0; right: 0; padding: 2px 5px; font-size: 10pt; cursor: pointer; }
 
-#user-dialog .user-data dd { font-weight: bold; min-height: 15px; }
+  #user-dialog .user-data { padding: 10px 15px; font-family: sans-serif; font-size: 9pt; }
+  #user-dialog .user-data .list, #user-dialog .user-data .comments { float: left; }
+  #user-dialog .user-data .list { border-right: 1px solid #ccc; width: 234px; margin-bottom: 13px; } 
 
-#user-dialog .user-data .comments { width: 235px; } 
-#user-dialog .user-data .comments textarea { width: 230px; height: 200px; margin-left: 3px; resize: none; border: none; }
+  #user-dialog .user-data dd { font-weight: bold; min-height: 15px; }
 
-#user-dialog .user-data .submit { width: 100%;  }
-#user-dialog .user-data .submit button { background: #1B96CF; border: none; height: 35px; width: 100%; color: #efefef; cursor: pointer; font-size: 11pt; font-weight: bold; }
-#user-dialog .user-data .submit button:hover { text-decoration: underline; background: #20b1f4; }
+  #user-dialog .user-data .comments { width: 235px; } 
+  #user-dialog .user-data .comments textarea { width: 230px; height: 200px; margin-left: 3px; resize: none; border: none; }
 
-#print { display: none; }
+  #user-dialog .user-data .submit { width: 100%;  }
+  #user-dialog .user-data .submit button { border: none; height: 35px; width: 100%; color: #efefef; cursor: pointer; font-size: 11pt; font-weight: bold; margin-bottom: 5px; }
+
+  #user-dialog .user-data .submit button.check-in { background: #1B96CF; }
+  #user-dialog .user-data .submit button.check-out { background: #A62807; display: none; }
+
+  #user-dialog .user-data .submit button:hover { text-decoration: underline; }
+  #user-dialog .user-data .submit button.check-in:hover { background: #20b1f4; }
+  #user-dialog .user-data .submit button.check-out:hover { background: #d13309; }
+}
+
+@media print { 
+  body { margin: 0; padding: 0; background: white; font-family: Helvetica, sans-serif;}
+  #wrapper { display: none; }
+  #print { display: block; }
+  .page-break { display: block; page-break-before: always; }
+
+  .a4 { margin: 0 auto; overflow: hidden; line-height: 1.5em; }
+  .a4 h1 { line-height: 1em; }
+.a4 h3 { font-size: 13pt; }
+  .print-wrapper { margin: 19mm 19mm 37mm 19mm; }
+  .print-wrapper img.logo { float: right; width: 60mm; margin: 0 0 10mm 10mm; }
+
+  .print-wrapper .head { line-height: 1em; }
+  .print-wrapper dl.personal-info { line-height: 1em; }
+  .print-wrapper dl.personal-info dd { font-weight: bold; height: 1em; }
+  .print-wrapper ul { font-size: 10pt; }
+  .print-wrapper dl.personal-info dd.incomplete { border-bottom: dotted 1px #aaaaaa; width: 20em; }
+
+
+  #information dl.sign { line-height: 5em; }
+  #information dl.sign dt { width: 5em; clear: left; }
+  #information dl.sign dd {  }
+  #information dl.sign * { float: left; }
+
+
+
+
+  hr.tear { border: 0; border-bottom: 1px dashed #CCC;background: #999; }
+}

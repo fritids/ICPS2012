@@ -3,6 +3,8 @@
 ** Template name: json-user-checkin-data
 */
 
+require 'functions/check-in.php';
+
 if( !isset($current_user) )
   $current_user = wp_get_current_user();
 
@@ -23,6 +25,8 @@ $udata['last_name'] = $u->last_name;
 foreach($metas as $meta) :
   $udata[$meta] = get_user_meta($id, $meta, true);
 endforeach;
+
+$udata['total_cost'] = icps_full_cost($u->ID);
 
 echo json_encode($udata);
 
